@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -17,9 +18,12 @@ export default function Home() {
               features of Blackboard, Google Classroom, Pupil Path, and
               Microsoft Teams into a single, user-friendly interface
             </p>
-            <button className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg ">
-              Sign In
-            </button>
+            <Link
+              href="/login"
+              className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg "
+            >
+              Log In
+            </Link>
           </div>
           {/* SECTION: Image */}
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">

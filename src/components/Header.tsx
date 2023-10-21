@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Header() {
@@ -26,8 +27,11 @@ export default function Header() {
           <a className="mr-5 hover:text-gray-400">Third Link</a>
           <a className="mr-5 hover:text-gray-400">Fourth Link</a>
         </nav>
-        <button className="inline-flex items-center bg-primary border-0 py-1 px-3 focus:outline-none hover:bg-secondary rounded text-base mt-4 md:mt-0">
-          Sign In
+        <Link
+          href="/login"
+          className="inline-flex items-center bg-primary border-0 py-1 px-3 focus:outline-none hover:bg-secondary rounded text-base mt-4 md:mt-0"
+        >
+          Log In
           <svg
             fill="none"
             stroke="currentColor"
@@ -39,7 +43,7 @@ export default function Header() {
           >
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
+        </Link>
       </div>
     </header>
   );
