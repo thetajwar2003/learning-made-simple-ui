@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lms-dev-93742-authRole",
+      "UnauthRoleArn": "arn:aws:iam::252369173231:role/amplify-lms-dev-93742-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::252369173231:role/amplify-lms-dev-93742-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-lms-dev-93742-deployment",
+      "UnauthRoleName": "amplify-lms-dev-93742-unauthRole",
+      "StackName": "amplify-lms-dev-93742",
+      "StackId": "arn:aws:cloudformation:us-east-1:252369173231:stack/amplify-lms-dev-93742/2dedabc0-70e0-11ee-bf22-0a105da865cd",
+      "AmplifyAppId": "d2cd49x6zwxl8t"
+    },
+    "categories": {
+      "auth": {
+        "lms9cdb797e": {}
+      },
+      "function": {
+        "lmsad7adeb2": {
+          "deploymentBucketName": "amplify-lms-dev-93742-deployment",
+          "s3Key": "amplify-builds/lmsad7adeb2-6c352b796177624d5235-build.zip"
+        }
+      },
+      "api": {
+        "lmsapi": {}
+      }
+    }
+  }
+}
