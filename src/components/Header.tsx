@@ -3,7 +3,10 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="text-white bg-black body-font sticky top-0">
+    <header
+      className="text-white bg-black body-font sticky top-0"
+      id="login-header"
+    >
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ">
         <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
           {/* TODO: replace the scg with an actual logo of our product */}
@@ -30,6 +33,7 @@ export default function Header() {
         <Link
           href="/login"
           className="inline-flex items-center bg-primary border-0 py-1 px-3 focus:outline-none hover:bg-secondary rounded text-base mt-4 md:mt-0"
+          id="header-login"
         >
           Log In
           <svg
