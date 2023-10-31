@@ -24,5 +24,7 @@ describe('Authentication and Navigation', () => {
 
     cy.log('Clicking on the logout button');
     cy.get('#logout-button').click();
+
+    // ended test
   });
 });
