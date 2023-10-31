@@ -4,6 +4,8 @@
 
 This project involves the development of a comprehensive Learning Management System (LMS), "Learning Made Simple", aimed at unifying various educational tools and platforms for a seamless learning and teaching experience.
 
+---
+
 ### Run
 
 To run this Next.js project
