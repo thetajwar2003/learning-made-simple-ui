@@ -4,14 +4,13 @@ import { Amplify, Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import config from '../../aws-exports';
 
 Amplify.configure({
   Auth: {
     mandatorySignIn: false,
-    region: config.cognito.REGION,
-    userPoolId: config.cognito.USER_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+    region: process.env.NEXT_PUBLIC_REGION,
+    userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID,
+    userPoolWebClientId: process.env.NEXT_PUBLIC_APP_CLIENT_ID,
   },
 });
 

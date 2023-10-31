@@ -12,13 +12,12 @@
     "test:unit": "jest __test__/Unit\\ Test",
     "test:integration": "jest __test__/Integration\\ Test",
     "cypress:open": "cypress open",
-    "cypress:headless": "cypress run --headless",
+    "cypress:headless": "cypress run --headless --config baseUrl=http://localhost:3000",
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@types/istanbul-lib-coverage": "^2.0.5",
     "aws-amplify": "^5.3.11",
-    "dotenv": "^16.3.1",
     "next": "^13.4.10",
     "next-router-mock": "^0.9.10",
     "react": "^18",
