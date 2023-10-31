@@ -16,6 +16,8 @@ To run this Next.js project
 
 <img src='./assets/test_coverage_report.png' width='50%'>
 
+---
+
 ### Problem Statement
 
 Educational institutions globally face challenges with fragmented LMS experiences, leading to inefficiencies for both students and educators. This project aims to streamline this experience, providing a unified platform for all educational needs.
