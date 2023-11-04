@@ -14,11 +14,18 @@ Amplify.configure({
 export type AuthInputs = {
   email: string;
   password: string;
+  userType?: string;
 };
+
+export interface AuthFormProps {
+  onSignUpSuccess?: () => void;
+  onSignInSuccess?: () => void;
+  onSwitchMode?: () => void;
+}
 
 // The signUp function that will be used in the Login component
 export const signUp = async (data: AuthInputs) => {
-  const { email, password } = data;
+  const { email, password, userType } = data;
 
   try {
     const { user } = await Auth.signUp({
@@ -32,6 +39,9 @@ export const signUp = async (data: AuthInputs) => {
       },
     });
     console.log('Signed up a user:', user);
+
+    // TODO 1: create new dynamo db user with cognito user id
+
     return user;
   } catch (error) {
     throw error;

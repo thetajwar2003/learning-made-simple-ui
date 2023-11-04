@@ -32,7 +32,7 @@ export default function Header() {
   };
 
   return (
-    <header className='text-white bg-black body-font sticky top-0 z-10'>
+    <header className='text-white bg-black body-font top-0 z-10'>
       <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center'>
         <Link
           href='/'
