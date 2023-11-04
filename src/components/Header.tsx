@@ -1,10 +1,12 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { isLoggedIn, logOut } from '../auth/auth'; // Adjust the import path as necessary
 
 export default function Header() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const checkAuthStatus = async () => {
@@ -23,6 +25,7 @@ export default function Header() {
     try {
       await logOut();
       setIsUserLoggedIn(false); // Update the state to reflect that the user has logged out
+      router.push('/'); // Redirect to the home page after logging out
     } catch (error) {
       console.error('Error logging out:', error);
     }
