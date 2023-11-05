@@ -16,7 +16,7 @@ function Courses() {
                 alt={course.courseName}
               />
               <div className='p-4'>
-                <h3 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>
+                <h3 className=' text-2xl font-bold tracking-tight text-gray-900'>
                   {course.courseName}
                 </h3>
                 <p className='text-gray-700 font-bold'>{course.courseCode}</p>
