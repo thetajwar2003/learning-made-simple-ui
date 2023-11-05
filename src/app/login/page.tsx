@@ -10,15 +10,17 @@ interface LoginProps {
 }
 
 export default function Login({ defaultMode = 'signup' }: LoginProps) {
+  // TODO: ADD conditional logic to go to /student and /teacher
+
   const [isSignUp, setIsSignUp] = useState(defaultMode === 'signup');
   const router = useRouter();
 
   const handleSignUpSuccess = () => {
-    router.push('/dashboard'); // Redirect to the dashboard after sign up
+    router.push('/student'); // Redirect to the dashboard after sign up
   };
 
   const handleSignInSuccess = () => {
-    router.push('/dashboard'); // Redirect to the dashboard after sign in
+    router.push('/student'); // Redirect to the dashboard after sign in
   };
 
   const switchMode = () => {

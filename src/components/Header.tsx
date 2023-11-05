@@ -55,8 +55,8 @@ export default function Header() {
         </Link>
         <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
           {isUserLoggedIn && (
-            <Link href='/dashboard' className='mr-5 hover:text-gray-400'>
-              Dashboard
+            <Link href='/student' className='mr-5 hover:text-gray-400'>
+              Dashboard (Student)
             </Link>
           )}
           <Link href='/about' className='mr-5 hover:text-gray-400'>
