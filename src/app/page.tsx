@@ -5,14 +5,14 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+      <main className='flex min-h-screen flex-col items-center justify-between p-24 bg-black'>
         <div className='container mx-auto flex px-5 md:flex-row flex-col items-center'>
           {/* SECTION: Title */}
           <div className='lg:flex-grow md:w-1/2  flex flex-col md:items-start md:text-left items-center text-center'>
             <h1 className='title-font sm:text-4xl md:text-7xl mb-4 font-medium text-white'>
               Where you can find all your classroom needs
             </h1>
-            <p className='mb-8 leading-relaxed'>
+            <p className='mb-8 leading-relaxed text-white'>
               A comprehensive learning management system that combines the best
               features of Blackboard, Google Classroom, Pupil Path, and
               Microsoft Teams into a single, user-friendly interface

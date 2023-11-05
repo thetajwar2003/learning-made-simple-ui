@@ -52,23 +52,14 @@ export default function Header() {
           <span className='ml-3 text-xl'>Learning Made Simple</span>
         </Link>
         <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
-          <Link href='/first-link' className='mr-5 hover:text-gray-400'>
-            First Link
-          </Link>
-          <Link href='/second-link' className='mr-5 hover:text-gray-400'>
-            Second Link
-          </Link>
-          <Link href='/third-link' className='mr-5 hover:text-gray-400'>
-            Third Link
-          </Link>
-          <Link href='/fourth-link' className='mr-5 hover:text-gray-400'>
-            Fourth Link
-          </Link>
           {isUserLoggedIn && (
             <Link href='/dashboard' className='mr-5 hover:text-gray-400'>
               Dashboard
             </Link>
           )}
+          <Link href='/about' className='mr-5 hover:text-gray-400'>
+            About
+          </Link>
         </nav>
         {isUserLoggedIn ? (
           <button
