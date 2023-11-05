@@ -14,7 +14,7 @@ Amplify.configure({
 export type AuthInputs = {
   email: string;
   password: string;
-  userType?: string;
+  userType: string;
 };
 
 export interface AuthFormProps {

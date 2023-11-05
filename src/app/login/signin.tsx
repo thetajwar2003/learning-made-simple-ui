@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { AuthFormProps, AuthInputs, signIn } from '../../auth/auth'; // Adjust the import path as necessary
 
 const SignIn: React.FC<AuthFormProps> = ({
-  onSignInSuccess = () => {}, // Provide a default no-op function
-  onSwitchMode = () => {}, // Do the same for onSwitchMode if necessary
+  onSignInSuccess = () => {},
+  onSwitchMode = () => {},
 }) => {
   const {
     register,
@@ -27,6 +27,7 @@ const SignIn: React.FC<AuthFormProps> = ({
       onSubmit={handleSubmit(onSubmit)}
       className='lg:w-1/2 md:w-2/3 mx-auto'
     >
+      {/* Email Input */}
       <div className='p-2 w-1/2 mx-auto'>
         <div className='relative'>
           <label htmlFor='email' className='leading-7 text-sm text-gray-400'>
@@ -43,6 +44,8 @@ const SignIn: React.FC<AuthFormProps> = ({
           )}
         </div>
       </div>
+
+      {/* Password Input */}
       <div className='p-2 w-1/2 mx-auto'>
         <div className='relative'>
           <label htmlFor='password' className='leading-7 text-sm text-gray-400'>
@@ -59,6 +62,41 @@ const SignIn: React.FC<AuthFormProps> = ({
           )}
         </div>
       </div>
+
+      {/* User Type Radio Buttons */}
+      <div className='p-2 w-full'>
+        <div className='relative flex justify-center'>
+          <label className='leading-7 text-sm text-gray-400 mr-4'>
+            User Type:
+          </label>
+          <div className='form-check form-check-inline'>
+            <input
+              {...register('userType')}
+              type='radio'
+              id='student'
+              value='student'
+              className='form-check-input'
+            />
+            <label htmlFor='student' className='form-check-label mr-2'>
+              Student
+            </label>
+          </div>
+          <div className='form-check form-check-inline'>
+            <input
+              {...register('userType')}
+              type='radio'
+              id='teacher'
+              value='teacher'
+              className='form-check-input'
+            />
+            <label htmlFor='teacher' className='form-check-label'>
+              Teacher
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {/* Submit Button */}
       <div className='p-2 w-full'>
         <button
           type='submit'
@@ -67,6 +105,8 @@ const SignIn: React.FC<AuthFormProps> = ({
           Sign In
         </button>
       </div>
+
+      {/* Switch Mode Button */}
       <div className='text-center mt-4'>
         <button type='button' onClick={onSwitchMode} className='text-white'>
           Don't have an account? Sign Up
