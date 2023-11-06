@@ -21,6 +21,7 @@ export default function Home() {
             <Link
               href="/login"
               className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg "
+              id="login-button"
             >
               Log In
             </Link>
@@ -31,6 +32,7 @@ export default function Home() {
               className="object-cover object-center rounded"
               alt="hero"
               src="https://dummyimage.com/720x600"
+              id="logo"
             />
           </div>
         </div>
