@@ -1,16 +1,16 @@
 import Sidebar from "@/components/Sidebar";
 import React from "react";
 
-interface TeacherDashboardLayout {
+interface StudentDashboardLayout {
   children: React.ReactNode;
 }
 
-export default function TeacherDashboardLayout({
+export default function StudentDashboardLayout({
   children,
-}: TeacherDashboardLayout) {
+}: StudentDashboardLayout) {
   return (
     <>
-      <Sidebar userType="Teacher" />
+      <Sidebar userType="Student" />
       {children}
     </>
   );
