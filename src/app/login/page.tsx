@@ -1,6 +1,6 @@
 "use client";
-import StudentSignUp from "@/components/sign-up/student";
-import TeacherSignUp from "@/components/sign-up/teacher";
+import StudentSignUp from "@/components/SignUp/Student";
+import TeacherSignUp from "@/components/SignUp/Teacher";
 import React, { useState } from "react";
 
 export default function Login() {
