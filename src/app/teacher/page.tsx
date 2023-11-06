@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Courses from './courses';
 import Dashboard from './dashboard';
 
-function Student() {
+function Teacher() {
   const [activeComponent, setActiveComponent] = useState('dashboard');
 
   const renderComponent = () => {
@@ -27,4 +27,4 @@ function Student() {
   );
 }
 
-export default Student;
+export default Teacher;
