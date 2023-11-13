@@ -6,6 +6,14 @@ The client-side components are represented by Next.js and Amplify, serving as th
 
 ![component-diagram](./public/component-diagram.jpeg)
 
+# Entity Diagram
+
+---
+
+This entity-relationship diagram outlines a comprehensive schema for an educational platform. The "Cognito" table manages user authentication with email and password attributes. The "Teacher" table includes a Cognito ID, personal details like name and date of birth, and an array of courses they teach. Similarly, the "Student" table features a Cognito ID, personal information, and an array of enrolled courses. The "Course" table encompasses essential details such as course code, name, term, teacher, class time, and arrays for students, posts, classwork, and homework. The "Post" table captures information about user-generated posts, including post ID, data posted, user ID, and submission links. Classwork and homework tables store details like file URLs, providing a structured framework for managing and associating academic materials within the platform.
+
+![er-diagram](./public/entity-diagram.png)
+
 # Flow Chart
 
 ---
