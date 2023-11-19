@@ -30,6 +30,6 @@ For students, the experience within the LMS is centered around a personalized da
 
 Teachers, on the other hand, are greeted with a dashboard that mirrors the student’s in utility but is tailored for their unique requirements. It includes a course creation modal, a tool for setting up new courses or managing existing sections. The dashboard provides an overview of all the courses they are currently instructing, with detailed sections for posts, classwork, homework, and a comprehensive list of students. This list is particularly significant for teachers, as it allows them to delve into the academic performance of each student, offering a pivotal tool for monitoring progress and providing tailored support and feedback.
 
-In essence, the LMS is designed with a keen focus on user-friendliness and functionality, ensuring a seamless navigation experience that is customized to the specific needs of students and teachers. This approach not only makes the platform accessible and easy to use but also enriches the learning and teaching experience, making the LMS a vital tool in the realm of educational technology.
+In essence, the LMS is designed with a keen focus on user-friendliness and functionality, ensuring a seamless navigation experience that is customized to the specific needs of students and teachers. 
 
 ![flow-chart](./public/flow-chart.png)
