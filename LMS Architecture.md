@@ -20,8 +20,6 @@ The 'Course' table is a critical component, detailing elements such as course co
 
 Further detailing the platform's functionality, the 'Post' table captures the essence of user-generated content, recording data like post ID, date posted, user ID, and submission links. This parallels the structure of the 'Classwork' and 'Homework' tables, which store specific academic details, including file URLs, to manage and link academic materials effectively within the platform.
 
-Overall, this ER diagram intricately illustrates the complex and multifaceted relationships and attributes that constitute the educational platform, showcasing how each entity plays a pivotal role in creating a comprehensive and organized educational environment.
-
 ![er-diagram](./public/entity-diagram.png)
 
 # Flow Chart
