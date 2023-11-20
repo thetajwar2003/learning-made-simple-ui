@@ -3,7 +3,7 @@ resource "aws_elastic_beanstalk_application" "application" {
 }
 
 resource "aws_elastic_beanstalk_environment" "environment" {
-  name                = "lms-environment"
+  name               = "lms-environment"
   cname_prefix        = "trahmanlms"
   application         = aws_elastic_beanstalk_application.application.name
   solution_stack_name = "64bit Amazon Linux 2023 v6.0.3 running Node.js 18"
