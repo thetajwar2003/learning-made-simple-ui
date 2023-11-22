@@ -18,14 +18,23 @@ jobs:
       - name: Terraform Init
         run: terraform init
         working-directory: ./terraform # specify your Terraform directory
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TERRAFORM_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TERRAFORM_AWS_SECRET_ACCESS_KEY }}
 
       - name: Terraform Validate
         run: terraform validate
         working-directory: ./terraform
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TERRAFORM_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TERRAFORM_AWS_SECRET_ACCESS_KEY }}
 
       - name: Terraform Plan
         run: terraform plan
         working-directory: ./terraform
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TERRAFORM_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TERRAFORM_AWS_SECRET_ACCESS_KEY }}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' # only apply on main branch
