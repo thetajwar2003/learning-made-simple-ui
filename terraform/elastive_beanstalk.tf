@@ -13,7 +13,4 @@ resource "aws_elastic_beanstalk_environment" "myenv" {
     name      = "IamInstanceProfile"
     value     = "aws-elasticbeanstalk-ec2-role"
   }
-
-  # Add more settings as needed
-  # Adding this text to test the git pull command
 }
