@@ -1,22 +1,15 @@
 name: Deploy Next.js App
 
-# on:
-#   workflow_run:
-#     workflows: [test] # Triggered by the test workflow
-#     types: [completed] # The test workflow must complete
-#     branches: [main] # Only when main is updated
-
-on: [push]
-#   workflow_run:
-#     workflows: ['Terraform'] # Name of the Terraform workflow
-#     types:
-#       - completed
-#     branches: [main]
+on:
+  workflow_run:
+    workflows: [Terraform] # Triggered by the test workflow
+    types: [completed] # The test workflow must complete
+    branches: [main] # Only when main is updated
 
 jobs:
   on-success:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
 
