@@ -15,4 +15,5 @@ resource "aws_elastic_beanstalk_environment" "myenv" {
   }
 
   # Add more settings as needed
+  # Adding this text to test the git pull command
 }
