@@ -1,6 +1,6 @@
 name: deploy
 
-on: [push]
+on:
   workflow_run:
     workflows: [test] # Triggered by the test workflow
     types: [completed] # The test workflow must complete
