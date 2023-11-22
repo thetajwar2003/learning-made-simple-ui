@@ -6,12 +6,12 @@ name: Deploy Next.js App
 #     types: [completed] # The test workflow must complete
 #     branches: [main] # Only when main is updated
 
-on:
-  workflow_run:
-    workflows: ['Terraform'] # Name of the Terraform workflow
-    types:
-      - completed
-    branches: [main]
+on: [push]
+#   workflow_run:
+#     workflows: ['Terraform'] # Name of the Terraform workflow
+#     types:
+#       - completed
+#     branches: [main]
 
 jobs:
   on-success:
