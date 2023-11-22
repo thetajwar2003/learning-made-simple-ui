@@ -5,12 +5,14 @@ import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Amplify, Auth } from 'aws-amplify';
-import awsconfig from '../../aws-exports';
+import amplifyConfig from '../../amplify-config';
 import LoginInput from '../CustomInputs/LoginInput';
 
-Amplify.configure(awsconfig);
+Amplify.configure(amplifyConfig);
 
 export default function StudentSignUp() {
+  console.log(amplifyConfig);
+
   const [signUpError, setSignUpError] = useState<string>('');
   const router = useRouter();
   const {
