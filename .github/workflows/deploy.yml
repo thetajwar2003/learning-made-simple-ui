@@ -1,0 +1,54 @@
+name: deploy
+
+on:
+  workflow_run:
+    workflows: [test] # Triggered by the test workflow
+    types: [completed] # The test workflow must complete
+    branches: [main] # Only when main is updated
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build Next.js Application
+        run: |
+          npm run build
+
+      # If your Next.js app has additional build steps, include them here
+
+      - name: Package Application
+        run: zip -r "nextjs_app_deploy-${{github.sha}}.zip" .next public package.json package-lock.json
+
+      - name: Upload application artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: nextjs_application_artifact
+          path: nextjs_app_deploy-${{github.sha}}.zip
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.G_ACTION_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.G_ACTION_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-2'
+
+      - name: Upload application file to AWS
+        run: aws s3 cp nextjs_app_deploy-${{github.sha}}.zip s3://terraform-state-lms-nafisk
+
+      - name: Create new application version
+        run: |
+          aws elasticbeanstalk create-application-version \
+          --application-name LMS \
+          --source-bundle S3Bucket="terraform-state-lms-nafisk",S3Key="nextjs_app_deploy-${{github.sha}}.zip" \
+          --version-label "ver-${{ github.sha }}" \
+          --description "commit-sha-${{ github.sha }}"
+
+      - name: Deploy application
+        run: aws elasticbeanstalk update-environment --environment-name LMS-environment --version-label "ver-${{ github.sha }}"
