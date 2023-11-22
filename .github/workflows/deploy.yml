@@ -22,7 +22,8 @@ jobs:
           npm run build
 
       # If your Next.js app has additional build steps, include them here
-
+      #
+      #
       - name: Package Application
         run: zip -r "nextjs_app_deploy-${{github.sha}}.zip" .next public package.json package-lock.json
 
