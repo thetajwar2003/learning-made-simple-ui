@@ -1,6 +1,7 @@
 "use client";
 import React, { ChangeEvent, useState } from "react";
 import UserHero from "../CustomHero/UserHero";
+import ShowComments from "../Comments/ShowComments";
 
 interface PostCardProps {
   id: string;
@@ -18,6 +19,7 @@ export default function PostCard({
   comments,
 }: PostCardProps) {
   const [comment, setComment] = useState("");
+
   const handlePostComment = () => {};
 
   const handleInputComment = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +31,6 @@ export default function PostCard({
     <div className="p-2 w-full" key={id}>
       <div className="w-full p-2 rounded-lg border-2 border-gray-700 flex flex-col relative overflow-hidden">
         {/* SECTION: User pfp name and timestamp */}
-
         <UserHero>
           <div className="flex-grow">
             <h2 className="text-white title-font text-sm">{originalPoster}</h2>
@@ -43,25 +44,7 @@ export default function PostCard({
         </h1>
 
         {/* SECTION: show comments */}
-        {comments && (
-          <>
-            {comments.map((c) => (
-              <>
-                <UserHero size="14" key={c.id}>
-                  <div className="flex-grow">
-                    <h2 className="text-white title-font text-sm">
-                      {c.poster}
-                    </h2>
-                    <h3 className="text-gray-500 text-xs">{c.timestamp}</h3>
-                  </div>
-                </UserHero>
-                <h1 className="text-md text-white pb-4 mb-4  leading-none">
-                  {c.body}
-                </h1>
-              </>
-            ))}
-          </>
-        )}
+        {comments.length > 0 && <ShowComments comments={comments} />}
 
         {/* SECTION: create comment */}
         <UserHero size="14">
