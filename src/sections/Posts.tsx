@@ -10,6 +10,27 @@ export default function Posts() {
 
   const handleAnnouncementModal = () => {};
   const posts = [
+    // TODO: can be sorted when queried from dynamodb -> make timestamp the sort key
+    {
+      id: "2",
+      body: "Post content with comments",
+      timestamp: "9:39 PM",
+      originalPoster: "TEACH #01",
+      comments: [
+        {
+          id: "2.1",
+          body: "This is a comment",
+          timestamp: "10:00 PM",
+          poster: "TEACH #01",
+        },
+        {
+          id: "2.2",
+          body: "This is latest comment",
+          timestamp: "11:00 PM",
+          poster: "TEACH #01",
+        },
+      ],
+    },
     {
       id: "1",
       body: "Your post content goes here...",
@@ -17,6 +38,7 @@ export default function Posts() {
       originalPoster: "TEACH #01",
       comments: [],
     },
+
     // ...more posts
   ];
   return (
@@ -29,10 +51,10 @@ export default function Posts() {
         {/* SECTION: announcement  */}
         <div className="col-span-2 flex flex-col w-full">
           <button
-            className="p-2 w-full  justify-start text-left"
+            className="p-2 w-full justify-start text-left bg-gray-800 rounded-lg"
             onClick={handleAnnouncementModal}
           >
-            <div className="h-full flex items-center border-gray-800 border p-2 rounded-lg">
+            <div className="h-full flex items-center">
               <img
                 alt="team"
                 className="w-16 h-16 object-cover object-center flex-shrink-0 rounded-full mr-4 p-2"

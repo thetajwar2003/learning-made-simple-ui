@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { ChangeEvent, useState } from "react";
+import UserHero from "../CustomHero/UserHero";
 
 interface PostCardProps {
   id: string;
@@ -15,24 +17,72 @@ export default function PostCard({
   originalPoster,
   comments,
 }: PostCardProps) {
+  const [comment, setComment] = useState("");
+  const handlePostComment = () => {};
+
+  const handleInputComment = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setComment(e.target.value);
+  };
+
   return (
-    <div className="p-2 w-full">
-      <div className="h-full p-6 rounded-lg border-2 border-gray-700 flex flex-col relative overflow-hidden">
-        <h2 className="text-sm tracking-widest text-gray-400 title-font mb-1 font-medium">
-          <img
-            alt="team"
-            className="w-16 h-16 object-cover object-center flex-shrink-0 rounded-full mr-4 p-2"
-            src="https://dummyimage.com/40x40"
-          />
+    <div className="p-2 w-full" key={id}>
+      <div className="w-full p-2 rounded-lg border-2 border-gray-700 flex flex-col relative overflow-hidden">
+        {/* SECTION: User pfp name and timestamp */}
+
+        <UserHero>
           <div className="flex-grow">
-            <h2 className="text-white title-font text-sm">
-              Announce something to your class
-            </h2>
+            <h2 className="text-white title-font text-sm">{originalPoster}</h2>
+            <h3 className="text-gray-500 text-xs">{timestamp}</h3>
           </div>
-        </h2>
-        <h1 className="text-lg text-white pb-4 mb-4 border-b border-gray-800 leading-none">
-          Free
+        </UserHero>
+
+        {/* SECTION: body */}
+        <h1 className="text-md text-white pb-4 mb-4 border-b border-gray-800 leading-none">
+          {body}
         </h1>
+
+        {/* SECTION: show comments */}
+        {comments && (
+          <>
+            {comments.map((c) => (
+              <>
+                <UserHero size="14" key={c.id}>
+                  <div className="flex-grow">
+                    <h2 className="text-white title-font text-sm">
+                      {c.poster}
+                    </h2>
+                    <h3 className="text-gray-500 text-xs">{c.timestamp}</h3>
+                  </div>
+                </UserHero>
+                <h1 className="text-md text-white pb-4 mb-4  leading-none">
+                  {c.body}
+                </h1>
+              </>
+            ))}
+          </>
+        )}
+
+        {/* SECTION: create comment */}
+        <UserHero size="14">
+          <div className="flex-grow">
+            <input
+              className="rounded-xl w-full bg-transparent shadow-sm placeholder-slate-400 border border-white p-2"
+              placeholder="Add comment"
+              onChange={handleInputComment}
+              value={comment}
+            />
+          </div>
+          <button onClick={handlePostComment}>
+            <img
+              width="26"
+              height="26"
+              src="https://img.icons8.com/material-sharp/26/FFFFFF/sent.png"
+              alt="sent"
+              className="m-2"
+            />
+          </button>
+        </UserHero>
       </div>
     </div>
   );

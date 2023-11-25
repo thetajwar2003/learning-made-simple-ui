@@ -9,7 +9,7 @@ export default function StudentCoursePage() {
   return (
     <div className="p-4 sm:ml-64 h-screen">
       <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
-      {currentTab == "posts" ? <Posts /> : null}
+      {currentTab == "posts" && <Posts />}
     </div>
   );
 }
