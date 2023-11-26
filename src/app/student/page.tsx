@@ -6,7 +6,7 @@ import CourseListCard from "@/components/CustomCards/CourseListCard";
 
 export default function StudentDashboard() {
   return (
-    <div className="p-4 sm:ml-64">
+    <div className="p-4 sm:ml-40 lg:ml-64 lg:ml-128 h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {courses.map((course, index) => (
           <div
