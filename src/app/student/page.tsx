@@ -13,7 +13,10 @@ export default function StudentDashboard() {
             key={index}
             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow"
           >
-            <Link href={`/student/${course.courseCode}`}>
+            <Link
+              href={`/student/${course.courseCode}`}
+              id={`course-list-card-${index}`}
+            >
               <CourseListCard
                 bannerURL={course.bannerURL}
                 teacher={course.teacher}

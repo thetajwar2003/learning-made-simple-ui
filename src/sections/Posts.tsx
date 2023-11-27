@@ -3,13 +3,14 @@ import PostCard from "@/components/CustomCards/PostCard";
 import ClassCodeCard from "@/components/CustomCards/ClassCodeCard";
 import React from "react";
 import AssignmentCard from "@/components/CustomCards/AssignmentCard";
+import UserHero from "@/components/CustomHero/UserHero";
 
 export default function Posts() {
+  const handleAnnouncementModal = () => {};
+
   const data = {
     classCode: "3nmf91",
   };
-
-  const handleAnnouncementModal = () => {};
   const posts = [
     // TODO: can be sorted when queried from dynamodb -> make timestamp the sort key
     {
@@ -67,19 +68,15 @@ export default function Posts() {
           <button
             className="p-2 w-full justify-start text-left bg-gray-800 rounded-lg"
             onClick={handleAnnouncementModal}
+            id="make-announcement-card"
           >
-            <div className="h-full flex items-center">
-              <img
-                alt="team"
-                className="w-16 h-16 object-cover object-center flex-shrink-0 rounded-full mr-4 p-2"
-                src="https://dummyimage.com/40x40"
-              />
+            <UserHero>
               <div className="flex-grow">
                 <h2 className="text-white title-font text-sm">
                   Announce something to your class
                 </h2>
               </div>
-            </div>
+            </UserHero>
           </button>
           <>
             {/* TODO ERROR HERE */}

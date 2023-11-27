@@ -41,6 +41,7 @@ export default function CoursePageTabs({
             handleTab("posts");
           }}
           className={currentTab == "posts" ? highlighted : normal}
+          id="posts-tab"
         >
           Posts
         </button>
@@ -49,6 +50,7 @@ export default function CoursePageTabs({
             handleTab("assignments");
           }}
           className={currentTab == "assignments" ? highlighted : normal}
+          id="assignments-tab"
         >
           Assignments
         </button>
@@ -57,6 +59,7 @@ export default function CoursePageTabs({
             handleTab("students");
           }}
           className={currentTab == "students" ? highlighted : normal}
+          id="students-tab"
         >
           Students
         </button>
@@ -65,6 +68,7 @@ export default function CoursePageTabs({
             handleTab("grades");
           }}
           className={currentTab == "grades" ? highlighted : normal}
+          id="grades-tab"
         >
           Grades
         </button>

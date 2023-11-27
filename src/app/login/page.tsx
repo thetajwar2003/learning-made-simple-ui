@@ -26,6 +26,7 @@ export default function Login() {
                 tab == "student" ? `bg-primary text-white` : `text-gray-300 `
               }`}
               onClick={handleTab}
+              id="login-student-tab"
             >
               Student
             </button>
@@ -34,6 +35,7 @@ export default function Login() {
                 tab == "teacher" ? `bg-primary text-white` : `text-gray-300 `
               }`}
               onClick={handleTab}
+              id="login-teacher-tab"
             >
               Teacher
             </button>

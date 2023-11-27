@@ -18,12 +18,18 @@ export default function CourseListCard({
           className="lg:h-48 md:h-36 w-full object-cover object-center"
           src={bannerURL}
           alt="blog"
+          id="course-banner"
         />
         <div className="p-6">
-          <h1 className="title-font text-lg font-medium text-black mb-3 ">
+          <h1
+            className="title-font text-lg font-medium text-black mb-3"
+            id="course-name"
+          >
             {courseName}
           </h1>
-          <p className="text-gray-700">{teacher}</p>
+          <p className="text-gray-700" id="course-teacher">
+            {teacher}
+          </p>
         </div>
       </div>
     </>

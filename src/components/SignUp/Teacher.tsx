@@ -103,7 +103,7 @@ export default function TeacherSignUp() {
         <LoginInput
           label="Department"
           type="text"
-          id="Department"
+          id="department"
           params={{
             ...register("department", {
               required: {
