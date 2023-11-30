@@ -7,15 +7,21 @@ interface SidebarProps {
 
 export default function Sidebar({ userType }: SidebarProps) {
   return (
-    <div className="h-screen w-1/6 bg-gray-800 text-white absolute">
+    <div
+      className="h-screen w-1/6 bg-gray-800 text-white absolute"
+      id="sidebar"
+    >
       <div className="p-4">
         {/* Sidebar content goes here */}
-        <h2 className="text-xl font-bold mb-4">{userType} Menu</h2>
+        <h2 className="text-xl font-bold mb-4" id="sidebar-title">
+          {userType} Menu
+        </h2>
         <ul>
           <li className="py-2">
             <a
               href="#"
               className="flex items-center p-2 rounded-lg group hover:bg-primary hover:text-white"
+              id="dashboard"
               // onClick={() => setActiveComponent("courses")}
             >
               <svg
@@ -36,6 +42,7 @@ export default function Sidebar({ userType }: SidebarProps) {
               href="#"
               className="flex items-center p-2 rounded-lg group hover:bg-primary hover:text-white"
               // onClick={() => setActiveComponent("courses")}
+              id="all-courses"
             >
               <svg
                 className="w-5 h-5 text-gray-500 transition duration-75  group-hover:text-white "

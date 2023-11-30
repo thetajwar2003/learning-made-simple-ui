@@ -1,9 +1,15 @@
-import React from "react";
+"use client";
+import CoursePageTabs from "@/components/Tabs/CoursePageTabs";
+import Posts from "@/sections/Posts";
+import React, { useState } from "react";
 
-interface CoursePageProps {
-  params: { slug: string };
-}
+export default function StudentCoursePage() {
+  const [currentTab, setCurrentTab] = useState("posts");
 
-export default function CoursePage({ params }: CoursePageProps) {
-  return <div className="p-4 sm:ml-64">Course Code: {params.slug}</div>;
+  return (
+    <div className="p-4 sm:ml-40 lg:ml-64 lg:ml-128 h-screen">
+      <CoursePageTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
+      {currentTab == "posts" && <Posts />}
+    </div>
+  );
 }
