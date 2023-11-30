@@ -10,7 +10,6 @@ export default function ShowComments({ comments }: ShowCommentsProps) {
 
   const handleShowComments = () => {
     setShowComments(!showComments);
-    console.log(comments[comments.length - 1].poster);
   };
 
   return (

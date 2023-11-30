@@ -6,7 +6,6 @@ interface AttachmentCardProps {
 }
 
 export default function AttachmentCard({ type, value }: AttachmentCardProps) {
-  console.log(value);
   return (
     <div className="flex items-center justify-between p-2 bg-gray-800 rounded-lg border b-1 border-white mb-4">
       <div className="flex items-center">
