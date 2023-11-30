@@ -1,3 +1,4 @@
+"use client";
 import Tabs from "@/components/Tabs/CoursePageTabs";
 import Posts from "@/sections/Posts";
 import React, { useState } from "react";
