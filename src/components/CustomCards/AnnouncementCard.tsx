@@ -100,8 +100,8 @@ export default function CreateAnnouncementCard() {
           {link && <AttachmentCard type="link" value={link} />}
           {files.length > 0 && (
             <>
-              {[...files].map((f) => (
-                <AttachmentCard type="files" value={f} />
+              {[...files].map((f, index) => (
+                <AttachmentCard type="files" value={f} key={index} />
               ))}
             </>
           )}
