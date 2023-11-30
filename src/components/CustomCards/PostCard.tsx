@@ -29,7 +29,7 @@ export default function PostCard({
 
   return (
     <div className="p-2 w-full" key={id}>
-      <div className="w-full p-2 rounded-lg border-2 border-gray-700 flex flex-col relative overflow-hidden">
+      <div className="w-full p-2 rounded-lg border-2 border-secondary flex flex-col relative overflow-hidden">
         {/* SECTION: User pfp name and timestamp */}
         <UserHero>
           <div className="flex-grow">

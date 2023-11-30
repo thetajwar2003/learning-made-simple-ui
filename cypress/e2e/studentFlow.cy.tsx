@@ -17,7 +17,12 @@ describe("Student Flow", () => {
     cy.get("#posts-tab").should("exist").click();
     cy.get("#class-code-card").should("exist");
     cy.get("#copy-button").should("exist");
-    cy.get("#make-announcement-card").should("exist").click();
+    cy.get("#create-announcement-card").should("exist").click();
+    cy.get("#create-announcement-form").should("exist");
+    cy.get("#create-announcement-card").should("not.exist");
+    cy.get("#announcement-body").should("exist").type("this is a sample body");
+    cy.get("#post-button").should("exist").click();
+    cy.get("#create-announcement-form").should("not.exist");
 
     // go thru all the components in assignments
     cy.get("#assignments-tab").should("exist").click();

@@ -18,7 +18,7 @@ export default function AssignmentCard({
 }: AssignmentCardProps) {
   return (
     <div className="p-2 w-full" key={id}>
-      <div className="w-full p-2 rounded-lg border-2 border-gray-700 flex flex-col relative overfow-hidden">
+      <div className="w-full p-2 rounded-lg border-2 border-secondary flex flex-col relative overfow-hidden">
         <UserHero assignment={true}>
           <div className="flex-grow">
             <h2 className="text-white title-font text-sm">

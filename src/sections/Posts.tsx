@@ -1,13 +1,12 @@
 "use client";
+import React from "react";
+
 import PostCard from "@/components/CustomCards/PostCard";
 import ClassCodeCard from "@/components/CustomCards/ClassCodeCard";
-import React from "react";
 import AssignmentCard from "@/components/CustomCards/AssignmentCard";
-import UserHero from "@/components/CustomHero/UserHero";
+import CreateAnnouncementCard from "@/components/CustomCards/AnnouncementCard";
 
 export default function Posts() {
-  const handleAnnouncementModal = () => {};
-
   const data = {
     classCode: "3nmf91",
   };
@@ -58,34 +57,20 @@ export default function Posts() {
   ];
   return (
     <>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-5 gap-3">
         <div className="flex flex-col">
           <ClassCodeCard code={data.classCode} />
         </div>
 
-        {/* SECTION: announcement  */}
-        <div className="col-span-2 flex flex-col w-full">
-          <button
-            className="p-2 w-full justify-start text-left bg-gray-800 rounded-lg"
-            onClick={handleAnnouncementModal}
-            id="make-announcement-card"
-          >
-            <UserHero>
-              <div className="flex-grow">
-                <h2 className="text-white title-font text-sm">
-                  Announce something to your class
-                </h2>
-              </div>
-            </UserHero>
-          </button>
+        <div className="col-span-4 flex flex-col w-full">
+          <CreateAnnouncementCard />
           <>
-            {/* TODO ERROR HERE */}
-            {posts.map((item) => (
+            {posts.map((item, index) => (
               <>
                 {item.type == "announcement" ? (
-                  <PostCard {...item} />
+                  <PostCard {...item} key={index} />
                 ) : (
-                  <AssignmentCard {...item} />
+                  <AssignmentCard {...item} key={index} />
                 )}
               </>
             ))}
