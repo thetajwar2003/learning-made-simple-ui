@@ -25,4 +25,3 @@ jobs:
           build: npm run build
           start: npm start
           browser: chrome
-      - run: npm run cypress:run
