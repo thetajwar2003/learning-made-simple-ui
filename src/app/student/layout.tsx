@@ -1,17 +1,19 @@
-import Sidebar from "@/components/Sidebar";
-import React from "react";
+import Sidebar from '@/components/Sidebar';
+import React from 'react';
 
-interface StudentDashboardLayout {
+interface StudentDashboardLayoutProps {
   children: React.ReactNode;
 }
 
 export default function StudentDashboardLayout({
   children,
-}: StudentDashboardLayout) {
+}: StudentDashboardLayoutProps) {
   return (
-    <>
-      <Sidebar userType="Student" />
-      {children}
-    </>
+    <div className='flex'>
+      <Sidebar userType='Student' />
+      <div className='w-5/6 flex justify-center'>
+        <div className='w-full max-w-7xl mx-auto'>{children}</div>
+      </div>
+    </div>
   );
 }

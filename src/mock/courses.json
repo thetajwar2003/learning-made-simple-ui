@@ -68,5 +68,33 @@
     "homeworks": ["HOMEWORK#005"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Monday 11:30", "Wednesday 11:30"]
+  },
+  {
+    "PK": "COURSE#105",
+    "courseID": "COURSE#105",
+    "courseCode": "CHEM101",
+    "courseName": "Chemistry Fundamentals",
+    "term": "Fall 2023",
+    "students": ["STU#009", "STU#010"],
+    "teacher": "TEACH#005",
+    "posts": ["POST#009", "POST#010"],
+    "classworks": ["CLASSWORK#005"],
+    "homeworks": ["HOMEWORK#005"],
+    "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
+    "classTimes": ["Monday 11:30", "Wednesday 11:30"]
+  },
+  {
+    "PK": "COURSE#105",
+    "courseID": "COURSE#105",
+    "courseCode": "CHEM101",
+    "courseName": "Chemistry Fundamentals",
+    "term": "Fall 2023",
+    "students": ["STU#009", "STU#010"],
+    "teacher": "TEACH#005",
+    "posts": ["POST#009", "POST#010"],
+    "classworks": ["CLASSWORK#005"],
+    "homeworks": ["HOMEWORK#005"],
+    "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
+    "classTimes": ["Monday 11:30", "Wednesday 11:30"]
   }
 ]
