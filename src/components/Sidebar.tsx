@@ -1,11 +1,14 @@
-'use client';
 import React from 'react';
+import Link from 'next/link';
 
 interface SidebarProps {
   userType: 'Student' | 'Teacher';
 }
 
 export default function Sidebar({ userType }: SidebarProps) {
+  // Define the href based on the user type
+  const allCoursesHref = userType === 'Student' ? '/student' : '/teacher';
+
   return (
     <div className='h-screen w-1/6 bg-gray-800 text-white' id='sidebar'>
       <div className='p-4'>
@@ -19,7 +22,6 @@ export default function Sidebar({ userType }: SidebarProps) {
               href='#'
               className='flex items-center p-2 rounded-lg group hover:bg-primary hover:text-white'
               id='dashboard'
-              // onClick={() => setActiveComponent("courses")}
             >
               <svg
                 className='w-5 h-5 text-gray-500 transition duration-75  group-hover:text-white '
@@ -35,10 +37,9 @@ export default function Sidebar({ userType }: SidebarProps) {
             </a>
           </li>
           <li className='py-2'>
-            <a
-              href='#'
+            <Link
+              href={allCoursesHref} // Set the href based on the user type
               className='flex items-center p-2 rounded-lg group hover:bg-primary hover:text-white'
-              // onClick={() => setActiveComponent("courses")}
               id='all-courses'
             >
               <svg
@@ -51,7 +52,7 @@ export default function Sidebar({ userType }: SidebarProps) {
                 <path d='M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z' />
               </svg>
               <span className='ml-3'>All Courses</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
