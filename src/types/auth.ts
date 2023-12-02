@@ -3,14 +3,14 @@ export type LoginInputs = {
   password: string;
 };
 
-export type StudentLoginType = {
+export interface StudentSignUpType {
+  name: string;
+  dob: string; // "2000-01-01"
   email: string;
   password: string;
   school: string;
-  major: string;
-  guardianName: string;
-  guardianNumber: string;
-};
+  profilePic: FileList;
+}
 
 export type TeacherLoginType = {
   email: string;
