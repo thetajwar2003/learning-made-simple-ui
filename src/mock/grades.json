@@ -5,10 +5,14 @@
     "grades": [
       {
         "assignmentID": "assignment1",
+        "title": "Math Homework #1",
+        "description": "Complete the attached worksheet on algebraic equations. ",
         "grade": "A"
       },
       {
         "assignmentID": "assignment2",
+        "title": "Math Homework #1",
+        "description": "Complete the attached worksheet on algebraic equations. ",
         "grade": "B+"
       }
     ]
@@ -19,6 +23,7 @@
     "grades": [
       {
         "assignmentID": "assignment1",
+
         "grade": "A-"
       },
       {
@@ -69,5 +74,4 @@
       }
     ]
   }
-  // ... additional entries for other students and courses
 ]
