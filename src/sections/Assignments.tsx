@@ -5,9 +5,13 @@ import AssignmentCard from '@/components/CustomCards/AssignmentCard';
 import ClassCodeCard from '@/components/CustomCards/ClassCodeCard';
 import assignments from '@/mock/assignment.json'; // Assuming assignments are part of the posts.json
 
-export default function Assignments() {
+interface course {
+  classCode: string;
+}
+
+export default function Assignments({ classCode }: course) {
   const data = {
-    classCode: '3nmf91',
+    classCode: classCode,
   };
 
   return (

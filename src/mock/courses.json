@@ -1,7 +1,7 @@
 [
   {
     "PK": "COURSE#101",
-    "courseID": "COURSE#101",
+    "courseID": "dsad231",
     "courseCode": "CS101",
     "courseName": "Introduction to Computer Science",
     "term": "Fall 2023",
@@ -12,7 +12,7 @@
   },
   {
     "PK": "COURSE#102",
-    "courseID": "COURSE#102",
+    "courseID": "FGHIJ",
     "courseCode": "ENG101",
     "courseName": "English Composition",
     "term": "Fall 2023",
@@ -23,7 +23,7 @@
   },
   {
     "PK": "COURSE#103",
-    "courseID": "COUR SE#103",
+    "courseID": "KLMNO",
     "courseCode": "MATH101",
     "courseName": "Calculus I",
     "term": "Fall 2023",
@@ -34,7 +34,7 @@
   },
   {
     "PK": "COURSE#104",
-    "courseID": "COURSE#104",
+    "courseID": "PQRST",
     "courseCode": "HIST101",
     "courseName": "World History",
     "term": "Fall 2023",
@@ -45,7 +45,7 @@
   },
   {
     "PK": "COURSE#105",
-    "courseID": "COURSE#105",
+    "courseID": "UVWXY",
     "courseCode": "CHEM101",
     "courseName": "Chemistry Fundamentals",
     "term": "Fall 2023",
@@ -56,7 +56,7 @@
   },
   {
     "PK": "COURSE#105",
-    "courseID": "COURSE#105",
+    "courseID": "Z1234",
     "courseCode": "CHEM101",
     "courseName": "Chemistry Fundamentals",
     "term": "Fall 2023",
@@ -67,7 +67,7 @@
   },
   {
     "PK": "COURSE#105",
-    "courseID": "COURSE#105",
+    "courseID": "56789",
     "courseCode": "CHEM101",
     "courseName": "Chemistry Fundamentals",
     "term": "Fall 2023",

@@ -14,7 +14,7 @@ export default function StudentDashboard() {
             className='max-w-sm bg-white border border-gray-200 rounded-lg shadow'
           >
             <Link
-              href={`/student/${course.courseCode}`}
+              href={`/student/${course.courseID}`}
               id={`course-list-card-${index}`}
             >
               <CourseListCard

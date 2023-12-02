@@ -6,11 +6,16 @@ import AssignmentCard from '@/components/CustomCards/AssignmentCard';
 import CreateAnnouncementCard from '@/components/CustomCards/AnnouncementCard';
 import posts from '@/mock/posts.json';
 
-export default function Posts() {
+interface course {
+  classCode: string;
+}
+
+export default function Posts({ classCode }: course) {
   const data = {
-    classCode: '3nmf91',
+    classCode: classCode,
   };
 
+  console.log(classCode);
   return (
     <>
       <div className='grid grid-cols-5 gap-3'>
