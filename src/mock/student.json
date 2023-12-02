@@ -1,6 +1,6 @@
 [
   {
-    "PK": "STU#001",
+    "id": "STU#001",
     "cognitoId": "COG#001",
     "name": "John Doe",
     "dob": "1990-01-01",
@@ -9,7 +9,7 @@
     "courses": ["COURSE#101", "COURSE#102"]
   },
   {
-    "PK": "STU#002",
+    "id": "STU#002",
     "cognitoId": "COG#002",
     "name": "Jane Smith",
     "dob": "1995-05-15",
@@ -19,7 +19,7 @@
     "courses": ["COURSE#103", "COURSE#104"]
   },
   {
-    "PK": "STU#003",
+    "id": "STU#003",
     "cognitoId": "COG#003",
     "name": "Alice Johnson",
     "dob": "1988-11-30",
@@ -29,7 +29,7 @@
     "courses": ["COURSE#105", "COURSE#106"]
   },
   {
-    "PK": "STU#004",
+    "id": "STU#004",
     "cognitoId": "COG#004",
     "name": "Michael Brown",
     "dob": "1992-03-20",
@@ -39,7 +39,7 @@
     "courses": ["COURSE#107", "COURSE#108"]
   },
   {
-    "PK": "STU#005",
+    "id": "STU#005",
     "cognitoId": "COG#005",
     "name": "Emily Wilson",
     "dob": "1993-08-10",
@@ -49,7 +49,7 @@
     "courses": ["COURSE#109", "COURSE#110"]
   },
   {
-    "PK": "STU#006",
+    "id": "STU#006",
     "cognitoId": "COG#006",
     "name": "David Lee",
     "dob": "1991-06-25",
@@ -59,7 +59,7 @@
     "courses": ["COURSE#111", "COURSE#112"]
   },
   {
-    "PK": "STU#007",
+    "id": "STU#007",
     "cognitoId": "COG#007",
     "name": "Sophia Taylor",
     "dob": "1994-02-05",
@@ -67,35 +67,5 @@
     "profilePictureURL": "https://example.com/profile/sophiataylor.jpg",
     "bannerURL": "https://example.com/banner/sophiataylor.jpg",
     "courses": ["COURSE#113", "COURSE#114"]
-  },
-  {
-    "PK": "STU#008",
-    "cognitoId": "COG#008",
-    "name": "Matthew Evans",
-    "dob": "1989-09-15",
-    "email": "matthew.evans@example.com",
-    "profilePictureURL": "https://example.com/profile/matthewevans.jpg",
-    "bannerURL": "https://example.com/banner/matthewevans.jpg",
-    "courses": ["COURSE#115", "COURSE#116"]
-  },
-  {
-    "PK": "STU#009",
-    "cognitoId": "COG#009",
-    "name": "Olivia Clark",
-    "dob": "1996-12-08",
-    "email": "olivia.clark@example.com",
-    "profilePictureURL": "https://example.com/profile/oliviaclark.jpg",
-    "bannerURL": "https://example.com/banner/oliviaclark.jpg",
-    "courses": ["COURSE#117", "COURSE#118"]
-  },
-  {
-    "PK": "STU#010",
-    "cognitoId": "COG#010",
-    "name": "Daniel Anderson",
-    "dob": "1997-04-03",
-    "email": "daniel.anderson@example.com",
-    "profilePictureURL": "https://example.com/profile/danielanderson.jpg",
-    "bannerURL": "https://example.com/banner/danielanderson.jpg",
-    "courses": ["COURSE#119", "COURSE#120"]
   }
 ]

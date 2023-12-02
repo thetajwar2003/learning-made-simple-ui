@@ -10,6 +10,7 @@ interface course {
 }
 
 export default function Assignments({ classCode }: course) {
+  // TODO: Use AWS Amplify to fetch assignments from the database using the classCode
   const data = {
     classCode: classCode,
   };
@@ -23,7 +24,7 @@ export default function Assignments({ classCode }: course) {
 
         <div className='col-span-4 flex flex-col w-full'>
           {assignments.map((item, index) => (
-            <AssignmentCard {...item} key={index} />
+            <AssignmentCard {...item} key={index} /> // Pass the handleUpload function
           ))}
         </div>
       </div>

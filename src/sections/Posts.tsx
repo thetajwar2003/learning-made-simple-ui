@@ -10,12 +10,13 @@ interface course {
   classCode: string;
 }
 
+// TODO: Use AWS Amplify to fetch posts from the database using the classCode
+
 export default function Posts({ classCode }: course) {
   const data = {
     classCode: classCode,
   };
 
-  console.log(classCode);
   return (
     <>
       <div className='grid grid-cols-5 gap-3'>
