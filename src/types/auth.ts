@@ -3,7 +3,7 @@ export type LoginInputs = {
   password: string;
 };
 
-export interface StudentSignUpType {
+export interface StudentLoginType {
   name: string;
   dob: string; // "2000-01-01"
   email: string;
@@ -17,4 +17,5 @@ export type TeacherLoginType = {
   password: string;
   school: string;
   department: string;
+  profilePic: FileList;
 };
