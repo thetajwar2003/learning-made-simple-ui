@@ -4,6 +4,8 @@ import courses from '../../mock/courses.json';
 import Link from 'next/link';
 import CourseListCard from '@/components/CustomCards/CourseListCard';
 
+// TODO: Get student info and look up courses based on that
+
 export default function StudentDashboard() {
   return (
     <div className='p-4 h-screen'>

@@ -14,6 +14,19 @@
       "/files/assignments/math_homework_1.pdf",
       "/files/assignments/math_homework_1_instructions.pdf"
     ],
-    "Completed": ["STU#001"]
+    "completed": [
+      {
+        "name": "John Doe",
+        "profilePicUrl": "https://i.redd.it/0gw1ax20unt91.jpg",
+        "date": "2023-12-10",
+        "fileUrls": ["/files/assignments/math_homework_1_johndoe.pdf"]
+      },
+      {
+        "name": "John Doe",
+        "profilePicUrl": "https://i.redd.it/0gw1ax20unt91.jpg",
+        "date": "2023-12-10",
+        "fileUrls": ["/files/assignments/math_homework_1_johndoe.pdf"]
+      }
+    ]
   }
 ]

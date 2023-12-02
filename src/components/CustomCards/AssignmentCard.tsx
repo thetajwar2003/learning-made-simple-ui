@@ -12,7 +12,12 @@ interface AssignmentCardProps {
     profilePicUrl: string;
   };
   fileUrls?: string[];
-  onUpload?: (files: FileList) => void;
+  completed: {
+    name: string;
+    profilePicUrl: string;
+    date: string;
+    fileUrls: string[];
+  }[];
 }
 
 export default function AssignmentCard({
@@ -23,7 +28,7 @@ export default function AssignmentCard({
   postedDate,
   teacher,
   fileUrls = [],
-  onUpload,
+  completed,
 }: AssignmentCardProps) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [isHoveredSubmit, setIsHoveredSubmit] = useState(false);
