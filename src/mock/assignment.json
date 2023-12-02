@@ -1,0 +1,29 @@
+[
+  {
+    "id": "assignment1",
+    "title": "Math Homework #1",
+    "description": "Complete the attached worksheet on algebraic equations.",
+    "dueDate": "2023-12-15",
+    "postedDate": "2023-12-01",
+    "teacher": {
+      "name": "Mr. Smith",
+      "profilePicUrl": "/images/teachers/mrsmith.jpg"
+    },
+    "fileUrls": [
+      "/files/assignments/math_homework_1.pdf",
+      "/files/assignments/math_homework_1_instructions.pdf"
+    ]
+  },
+  {
+    "id": "assignment2",
+    "title": "Science Project",
+    "description": "Prepare a presentation on renewable energy sources.",
+    "dueDate": "2023-12-20",
+    "postedDate": "2023-12-05",
+    "teacher": {
+      "name": "Ms. Johnson",
+      "profilePicUrl": "/images/teachers/msjohnson.jpg"
+    },
+    "fileUrls": ["/files/assignments/science_project_guidelines.pdf"]
+  }
+]
