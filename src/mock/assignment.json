@@ -1,6 +1,7 @@
 [
   {
     "id": "assignment1",
+    "courseID": "COURSE#101",
     "title": "Math Homework #1",
     "description": "Complete the attached worksheet on algebraic equations.",
     "dueDate": "2023-12-15",
@@ -16,6 +17,7 @@
   },
   {
     "id": "assignment2",
+    "courseID": "COURSE#101",
     "title": "Science Project",
     "description": "Prepare a presentation on renewable energy sources.",
     "dueDate": "2023-12-20",

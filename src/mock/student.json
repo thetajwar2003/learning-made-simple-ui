@@ -6,7 +6,6 @@
     "dob": "1990-01-01",
     "email": "john.doe@example.com",
     "profilePictureURL": "https://example.com/profile/johndoe.jpg",
-    "bannerURL": "https://example.com/banner/johndoe.jpg",
     "courses": ["COURSE#101", "COURSE#102"]
   },
   {

@@ -7,9 +7,6 @@
     "term": "Fall 2023",
     "students": ["STU#001", "STU#002"],
     "teacher": "TEACH#001",
-    "posts": ["POST#001", "POST#002"],
-    "classworks": ["CLASSWORK#001"],
-    "homeworks": ["HOMEWORK#001"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Monday 10:00", "Wednesday 10:00"]
   },
@@ -21,23 +18,17 @@
     "term": "Fall 2023",
     "students": ["STU#003", "STU#004"],
     "teacher": "TEACH#002",
-    "posts": ["POST#003", "POST#004"],
-    "classworks": ["CLASSWORK#002"],
-    "homeworks": ["HOMEWORK#002"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Tuesday 09:30", "Thursday 09:30"]
   },
   {
     "PK": "COURSE#103",
-    "courseID": "COURSE#103",
+    "courseID": "COUR SE#103",
     "courseCode": "MATH101",
     "courseName": "Calculus I",
     "term": "Fall 2023",
     "students": ["STU#005", "STU#006"],
     "teacher": "TEACH#003",
-    "posts": ["POST#005", "POST#006"],
-    "classworks": ["CLASSWORK#003"],
-    "homeworks": ["HOMEWORK#003"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Monday 13:00", "Wednesday 13:00"]
   },
@@ -49,9 +40,6 @@
     "term": "Fall 2023",
     "students": ["STU#007", "STU#008"],
     "teacher": "TEACH#004",
-    "posts": ["POST#007", "POST#008"],
-    "classworks": ["CLASSWORK#004"],
-    "homeworks": ["HOMEWORK#004"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Tuesday 14:30", "Thursday 14:30"]
   },
@@ -63,9 +51,6 @@
     "term": "Fall 2023",
     "students": ["STU#009", "STU#010"],
     "teacher": "TEACH#005",
-    "posts": ["POST#009", "POST#010"],
-    "classworks": ["CLASSWORK#005"],
-    "homeworks": ["HOMEWORK#005"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Monday 11:30", "Wednesday 11:30"]
   },
@@ -77,9 +62,6 @@
     "term": "Fall 2023",
     "students": ["STU#009", "STU#010"],
     "teacher": "TEACH#005",
-    "posts": ["POST#009", "POST#010"],
-    "classworks": ["CLASSWORK#005"],
-    "homeworks": ["HOMEWORK#005"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Monday 11:30", "Wednesday 11:30"]
   },
@@ -91,9 +73,6 @@
     "term": "Fall 2023",
     "students": ["STU#009", "STU#010"],
     "teacher": "TEACH#005",
-    "posts": ["POST#009", "POST#010"],
-    "classworks": ["CLASSWORK#005"],
-    "homeworks": ["HOMEWORK#005"],
     "bannerURL": "https://miro.medium.com/v2/resize:fit:3200/0*MPoz9YzJq7jMdbfh",
     "classTimes": ["Monday 11:30", "Wednesday 11:30"]
   }

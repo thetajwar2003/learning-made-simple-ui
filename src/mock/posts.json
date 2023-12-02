@@ -1,6 +1,7 @@
 [
   {
     "id": "2",
+    "courseID": "COURSE#101",
     "body": "Post content with comments",
     "timestamp": "9:39 PM",
     "originalPoster": "TEACH #01",
@@ -22,6 +23,7 @@
   },
   {
     "id": "1",
+    "courseID": "COURSE#102",
     "body": "Your post content goes here...",
     "timestamp": "November 22, 2023",
     "originalPoster": "TEACH #01",
