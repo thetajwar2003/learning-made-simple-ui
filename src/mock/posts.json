@@ -1,0 +1,42 @@
+[
+  {
+    "id": "2",
+    "body": "Post content with comments",
+    "timestamp": "9:39 PM",
+    "type": "announcement",
+    "originalPoster": "TEACH #01",
+    "comments": [
+      {
+        "id": "2.1",
+        "body": "This is a comment",
+        "timestamp": "10:00 PM",
+        "poster": "TEACH #01"
+      },
+      {
+        "id": "2.2",
+        "body": "This is latest comment",
+        "timestamp": "11:00 PM",
+        "poster": "TEACH #01"
+      }
+    ],
+    "assignmentTitle": ""
+  },
+  {
+    "id": "1",
+    "body": "Your post content goes here...",
+    "timestamp": "November 22, 2023",
+    "type": "announcement",
+    "originalPoster": "TEACH #01",
+    "comments": [],
+    "assignmentTitle": ""
+  },
+  {
+    "id": "0",
+    "body": "Your post content goes here...",
+    "timestamp": "November 19, 2023",
+    "type": "assignment",
+    "originalPoster": "TEACH #01",
+    "comments": [],
+    "assignmentTitle": "HW #2"
+  }
+]
