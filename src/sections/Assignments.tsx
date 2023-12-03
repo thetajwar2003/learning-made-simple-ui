@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import AssignmentCard from '@/components/CustomCards/AssignmentCard';
 import ClassCodeCard from '@/components/CustomCards/ClassCodeCard';
 import SubmittedCard from '@/components/CustomCards/SubmittedCard';
-import assignments from '@/mock/assignment.json'; // Assuming assignments are part of the posts.json
+import CreateAnnouncementCard from '@/components/CustomCards/AnnouncementCard';
+import assignments from '@/mock/assignment.json';
+import { is } from 'cypress/types/bluebird';
 
 interface course {
   classCode: string;
 }
 
 export default function Assignments({ classCode }: course) {
+  const [isCreatingAssignment, setIsCreatingAssignment] = useState(false);
+
   // TODO: Use AWS Amplify to fetch assignments from the database using the classCode
   const data = {
     classCode: classCode,
-  };
+  }; 
 
   const userType = 'Teacher'; // TODO: Get the user type from the database
 
   const handleCreateAssignment = () => {
-    // Implement your logic for creating a new assignment here
-    // You can open a modal or navigate to a new page for creating assignments
-    // Example: history.push('/create-assignment');
+    setIsCreatingAssignment(true);
+    console.log(isCreatingAssignment);
   };
 
   return (
@@ -29,7 +32,7 @@ export default function Assignments({ classCode }: course) {
         <div className='flex flex-col'>
           <ClassCodeCard code={data.classCode} />
         </div>
-
+        {/* new assignment */}
         <div className='col-span-4 flex flex-col w-full'>
           {userType === 'Teacher' && (
             <div className='p-2 w-full'>
@@ -43,6 +46,16 @@ export default function Assignments({ classCode }: course) {
               </div>
             </div>
           )}
+
+          {isCreatingAssignment && (
+            <CreateAnnouncementCard
+              userType={userType}
+              isOpen={isCreatingAssignment}
+              setIsOpen={setIsCreatingAssignment}
+            />
+          )}
+
+          {/* student or teacher assignment card */}
           {assignments.map((item, index) =>
             userType === 'Teacher' ? (
               <SubmittedCard {...item} key={index} />
