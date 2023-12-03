@@ -1,32 +1,124 @@
-import React from "react";
-import UserHero from "../CustomHero/UserHero";
+import React, { useRef, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface AssignmentCardProps {
   id: string;
-  body: string;
-  timestamp: string;
-  originalPoster: string;
-  assignmentTitle: string;
+  title: string;
+  description: string;
+  dueDate: string;
+  postedDate: string;
+  teacher: {
+    name: string;
+    profilePicUrl: string;
+  };
+  fileUrls?: string[];
+  completed: {
+    name: string;
+    profilePicUrl: string;
+    date: string;
+    fileUrls: string[];
+  }[];
 }
 
 export default function AssignmentCard({
   id,
-  body,
-  timestamp,
-  originalPoster,
-  assignmentTitle,
+  title,
+  description,
+  dueDate,
+  postedDate,
+  teacher,
+  fileUrls = [],
+  completed,
 }: AssignmentCardProps) {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [isHoveredSubmit, setIsHoveredSubmit] = useState(false);
+  const [isHoveredUpload, setIsHoveredUpload] = useState(false);
+  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
+  const notifySuccess = () => toast.success('Homework submitted successfully!');
+  const notifyError = () => toast.error('Homework submission failed!');
+
+  const handleNameChange = () => {
+    if (fileInputRef.current?.files) {
+      const uploadedFiles = fileInputRef.current.files;
+      // Set the uploaded file name
+      setUploadedFileName(uploadedFiles[0]?.name || null);
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log(fileInputRef.current?.files);
+    if (uploadedFileName) {
+      // Check if a file is uploaded before submitting
+      // onUpload(fileInputRef.current.files);
+      notifySuccess();
+    } else {
+      console.log('No files uploaded.');
+      notifyError();
+    }
+  };
+
   return (
-    <div className="p-2 w-full" key={id}>
-      <div className="w-full p-2 rounded-lg border-2 border-secondary flex flex-col relative overfow-hidden">
-        <UserHero assignment={true}>
-          <div className="flex-grow">
-            <h2 className="text-white title-font text-sm">
-              {originalPoster} posted a new assignment: {assignmentTitle}
-            </h2>
-            <h3 className="text-gray-500 text-xs">{timestamp}</h3>
+    <div className='p-2 w-full' key={id}>
+      <Toaster />
+      <div className='w-full p-4 rounded-lg border-2 border-secondary flex flex-col relative overflow-hidden'>
+        <div className='flex items-center justify-between'>
+          <div className='flex-grow'>
+            <h2 className='text-white title-font text-[1.5rem]'>{title}</h2>
+            <h3 className='text-gray-400 text-s'>Due Date: {dueDate}</h3>
+            <p className='text-gray-500'>{description}</p>
+            {fileUrls.map((url, index) => (
+              <a
+                key={index}
+                href={url}
+                className='text-blue-500 hover:underline'
+              >
+                Download File {index + 1}
+                <br />
+              </a>
+            ))}
           </div>
-        </UserHero>
+          <div
+            className={`text-center mt-4 rounded-lg p-2 m-2 bg-red-400 ${
+              isHoveredUpload
+                ? 'bg-green-500 hover:bg-green-600'
+                : 'bg-green-700 hover:bg-green-800'
+            }`}
+          >
+            <input
+              type='file'
+              ref={fileInputRef}
+              className='hidden'
+              onChange={handleNameChange}
+            />
+            <label
+              className={`leading-7 text-sm text-white cursor-pointer  rounded-md px-3 py-1 transition-colors duration-200 ease-in-out`}
+              onMouseEnter={() => setIsHoveredSubmit(true)}
+              onMouseLeave={() => setIsHoveredSubmit(false)}
+            >
+              {uploadedFileName ? uploadedFileName : 'Upload Homework'}
+              <input
+                type='file'
+                ref={fileInputRef}
+                className='hidden'
+                onChange={handleNameChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className='text-center mt-4'>
+          <button
+            onClick={handleSubmit}
+            onMouseEnter={() => setIsHoveredUpload(true)}
+            onMouseLeave={() => setIsHoveredUpload(false)}
+            className={`w-full ${
+              isHoveredSubmit
+                ? 'bg-green-700 hover:bg-green-800'
+                : 'bg-green-500 hover:bg-green-600'
+            } text-white rounded-lg px-3 py-1 transition-colors duration-200 ease-in-out`}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

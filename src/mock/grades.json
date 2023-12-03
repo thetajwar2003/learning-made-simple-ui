@@ -1,0 +1,77 @@
+[
+  {
+    "studentID": "STU#001",
+    "courseID": "COURSE#101",
+    "grades": [
+      {
+        "assignmentID": "assignment1",
+        "title": "Math Homework #1",
+        "description": "Complete the attached worksheet on algebraic equations. ",
+        "grade": "A"
+      },
+      {
+        "assignmentID": "assignment2",
+        "title": "Math Homework #1",
+        "description": "Complete the attached worksheet on algebraic equations. ",
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "studentID": "STU#002",
+    "courseID": "COURSE#101",
+    "grades": [
+      {
+        "assignmentID": "assignment1",
+
+        "grade": "A-"
+      },
+      {
+        "assignmentID": "assignment2",
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "studentID": "STU#003",
+    "courseID": "COURSE#102",
+    "grades": [
+      {
+        "assignmentID": "assignment3",
+        "grade": "B+"
+      },
+      {
+        "assignmentID": "assignment4",
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "studentID": "STU#004",
+    "courseID": "COURSE#102",
+    "grades": [
+      {
+        "assignmentID": "assignment3",
+        "grade": "C+"
+      },
+      {
+        "assignmentID": "assignment4",
+        "grade": "B-"
+      }
+    ]
+  },
+  {
+    "studentID": "STU#005",
+    "courseID": "COURSE#103",
+    "grades": [
+      {
+        "assignmentID": "assignment5",
+        "grade": "A"
+      },
+      {
+        "assignmentID": "assignment6",
+        "grade": "A-"
+      }
+    ]
+  }
+]
