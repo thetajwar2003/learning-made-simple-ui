@@ -1,5 +1,5 @@
 'use client';
-import { usePathname, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import CoursePageTabs from '@/components/Tabs/CoursePageTabs';
 import Posts from '@/sections/Posts';
 import Assignments from '@/sections/Assignments';
@@ -8,8 +8,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function StudentCoursePage() {
   const [currentTab, setCurrentTab] = useState('posts');
-  const pathname = usePathname();
-  const params = useParams(pathname); // ignore red squiggly
+  const params = useParams();
   let courseCode = params.courseCode;
 
   // Ensure courseCode is a string
