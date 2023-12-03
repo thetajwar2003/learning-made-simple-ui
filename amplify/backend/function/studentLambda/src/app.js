@@ -7,14 +7,14 @@ See the License for the specific language governing permissions and limitations 
 */
 
 
-const AWS = require('aws-sdk');
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DeleteCommand, DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, ScanCommand } = require('@aws-sdk/lib-dynamodb');
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
 const bodyParser = require('body-parser');
 const express = require('express');
-const { v4: uuid } = require('uuid');
 
-AWS.config({ region: process.env.TABLE_REGION });
-const dynamodb = new AWS.DynamoDB.DocumentClient();
+const ddbClient = new DynamoDBClient({ region: process.env.TABLE_REGION });
+const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 
 let tableName = "lmsUsersTable";
 if (process.env.ENV && process.env.ENV !== "NONE") {
@@ -181,29 +181,25 @@ const getUserId = (request) => {
 // *************************************/
 
 app.post(path, async function (req, res) {
+  if (userIdPresent) {
+    req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
+  }
 
   let putItemParams = {
     TableName: tableName,
-    Item: {
-      ...req.body,
-      id: uuidv4()
-    }
+    Item: req.body
   };
 
-  dynamodb.put(putItemParams, (error, result) => {
-    if (error) {
-      response.json({
-        statusCode: 500,
-        error: error.message
-      });
-    }
-    else {
-      response.json({
-        statusCode: 200,
-        body: JSON.stringify(params.Item)
-      });
-    }
-  });
+  console.log(putItemParams);
+
+  try {
+    let data = await ddbDocClient.send(new PutCommand(putItemParams));
+    res.statusCode = 200;
+    res.json({ success: 'post call succeed!', url: req.url, data: data });
+  } catch (err) {
+    res.statusCode = 500;
+    res.json({ error: err, url: req.url, body: req.body });
+  }
 });
 
 // /**************************************

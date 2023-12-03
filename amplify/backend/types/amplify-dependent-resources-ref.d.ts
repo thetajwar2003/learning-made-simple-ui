@@ -30,6 +30,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "postslambda": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "studentLambda": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -39,6 +46,14 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
+    "lmsPostsTable": {
+      "Arn": "string",
+      "Name": "string",
+      "PartitionKeyName": "string",
+      "PartitionKeyType": "string",
+      "Region": "string",
+      "StreamArn": "string"
+    },
     "lmsUsersTable": {
       "Arn": "string",
       "Name": "string",

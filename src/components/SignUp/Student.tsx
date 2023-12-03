@@ -7,6 +7,7 @@ import { StudentLoginType } from "@/types/auth";
 import { API, Amplify, Auth } from "aws-amplify";
 import awsconfig from "../../aws-exports";
 import LoginInput from "../CustomInputs/LoginInput";
+import { v4 as uuidv4 } from "uuid";
 
 Amplify.configure(awsconfig);
 
@@ -40,10 +41,10 @@ export default function StudentSignUp() {
     }
 
     try {
-      const { body, error } = await API.post("apilms", "/student", {
-        body: { ...data },
+      const { body, message } = await API.post("apilms", "/student", {
+        body: { ...data, id: uuidv4(), type: "student" },
       });
-      console.log(body, error);
+      console.log(body, message);
     } catch (error) {
       throw error;
     }

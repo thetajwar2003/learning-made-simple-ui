@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "studentLambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "postslambda"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -63,6 +71,25 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "postslambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "lmsPostsTable"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "studentLambda": {
       "build": true,
       "dependsOn": [
@@ -100,6 +127,22 @@
         }
       ]
     },
+    "AMPLIFY_function_postslambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "postslambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_postslambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "postslambda"
+        }
+      ]
+    },
     "AMPLIFY_function_studentLambda_deploymentBucketName": {
       "usedBy": [
         {
@@ -118,6 +161,10 @@
     }
   },
   "storage": {
+    "lmsPostsTable": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
     "lmsUsersTable": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"

@@ -23,7 +23,11 @@
         },
         "studentLambda": {
           "deploymentBucketName": "amplify-lms-dev-93742-deployment",
-          "s3Key": "amplify-builds/studentLambda-58425942756c4c493230-build.zip"
+          "s3Key": "amplify-builds/studentLambda-665a4346555651354f4a-build.zip"
+        },
+        "postslambda": {
+          "deploymentBucketName": "amplify-lms-dev-93742-deployment",
+          "s3Key": "amplify-builds/postslambda-4f4f5a6a377632677237-build.zip"
         }
       },
       "api": {
@@ -31,7 +35,8 @@
         "apilms": {}
       },
       "storage": {
-        "lmsUsersTable": {}
+        "lmsUsersTable": {},
+        "lmsPostsTable": {}
       }
     }
   }
