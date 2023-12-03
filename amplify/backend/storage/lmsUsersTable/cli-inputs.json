@@ -1,0 +1,10 @@
+{
+  "resourceName": "lmsUsersTable",
+  "tableName": "lmsUsersTable",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

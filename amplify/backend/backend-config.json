@@ -1,5 +1,19 @@
 {
   "api": {
+    "apilms": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "studentLambda"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "lmsapi": {
       "dependsOn": [
         {
@@ -48,6 +62,25 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "studentLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "lmsUsersTable"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -66,6 +99,28 @@
           "resourceName": "lmsad7adeb2"
         }
       ]
+    },
+    "AMPLIFY_function_studentLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "studentLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_studentLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "studentLambda"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "lmsUsersTable": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

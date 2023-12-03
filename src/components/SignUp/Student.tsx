@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { StudentLoginType } from "@/types/auth";
 
-import { Amplify, Auth } from "aws-amplify";
+import { API, Amplify, Auth } from "aws-amplify";
 import awsconfig from "../../aws-exports";
 import LoginInput from "../CustomInputs/LoginInput";
 
@@ -35,6 +35,15 @@ export default function StudentSignUp() {
         },
       });
       console.log("Signed up a user:", user);
+    } catch (error) {
+      throw error;
+    }
+
+    try {
+      const { body, error } = await API.post("apilms", "/student", {
+        body: { ...data },
+      });
+      console.log(body, error);
     } catch (error) {
       throw error;
     }
