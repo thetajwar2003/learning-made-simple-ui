@@ -26,10 +26,18 @@ export default function Header() {
           <span className='ml-3 text-xl'>Learning Made Simple</span>
         </Link>
         <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
-          <a className='mr-5 hover:text-gray-400'>Partners</a>
-          <a className='mr-5 hover:text-gray-400'>Tutorial</a>
-          <a className='mr-5 hover:text-gray-400'>Resources</a>
-          <a className='mr-5 hover:text-gray-400'>About</a>
+          <Link className='mr-5 hover:text-gray-400' href='./partners'>
+            Partners
+          </Link>
+          <Link className='mr-5 hover:text-gray-400' href='./tutorial'>
+            Tutorial
+          </Link>
+          <Link className='mr-5 hover:text-gray-400' href='./resources'>
+            Resources
+          </Link>
+          <Link className='mr-5 hover:text-gray-400' href='./about'>
+            About
+          </Link>
         </nav>
         <Link
           href='/login'

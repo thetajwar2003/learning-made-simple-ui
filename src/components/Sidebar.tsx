@@ -11,7 +11,7 @@ export default function Sidebar({ userType }: SidebarProps) {
   const allCoursesHref = userType === 'Student' ? '/student' : '/teacher';
 
   // TODO: Handle the sign out button
-  function handleSignOut() {}
+  // function handleSignOut() {}
 
   return (
     <div className='h-screen w-1/6 bg-gray-800 text-white' id='sidebar'>
@@ -68,7 +68,7 @@ export default function Sidebar({ userType }: SidebarProps) {
       <div className='mt-auto'>
         <Link
           href='./'
-          onClick={handleSignOut}
+          // onClick={handleSignOut}
           className='flex items-center p-2 rounded-lg group hover:bg-red-500 hover:text-white mx-2'
         >
           <svg
