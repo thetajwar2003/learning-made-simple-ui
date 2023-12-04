@@ -3,7 +3,7 @@ import grades from '@/mock/grades.json';
 import StudentGrades from '@/components/CustomCards/StudentGrades';
 import TeacherGrades from '@/components/CustomCards/TeacherGrades';
 
-const userType = 'Teacher'; // Change to 'Teacher' for testing the teacher view
+const userType: string = 'Teacher'; // Change to 'Teacher' for testing the teacher view
 const currentStudentID = 'STU#001'; // Current student ID (for testing)
 
 const Grades = ({ classCode }: any) => {

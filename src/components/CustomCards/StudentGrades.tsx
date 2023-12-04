@@ -39,7 +39,22 @@ const StudentGrades = ({ classCode, studentGrades }: any) => {
   };
 
   // Function to convert letter grades to numerical values
-  const convertGradeToNumber = grade => {
+  type Grade =
+    | 'A+'
+    | 'A'
+    | 'A-'
+    | 'B+'
+    | 'B'
+    | 'B-'
+    | 'C+'
+    | 'C'
+    | 'C-'
+    | 'D+'
+    | 'D'
+    | 'D-'
+    | 'F';
+
+  const convertGradeToNumber = (grade: Grade): number => {
     switch (grade) {
       case 'A+':
         return 4.0;
@@ -74,11 +89,11 @@ const StudentGrades = ({ classCode, studentGrades }: any) => {
 
   // Prepare data for the bar chart (individual assignment grades)
   const barChartData = {
-    labels: studentGrades?.grades.map(grade => grade.title),
+    labels: studentGrades?.grades.map((grade: any) => grade.title),
     datasets: [
       {
         label: 'Grades',
-        data: studentGrades?.grades.map(grade =>
+        data: studentGrades?.grades.map((grade: any) =>
           convertGradeToNumber(grade.grade)
         ),
         backgroundColor: 'rgb(117,254,255)',
@@ -88,11 +103,13 @@ const StudentGrades = ({ classCode, studentGrades }: any) => {
 
   // Prepare data for the line chart (grade trend)
   const lineChartData = {
-    labels: studentGrades?.grades.map((_, index) => `Assignment ${index + 1}`),
+    labels: studentGrades?.grades.map(
+      (_: any, index: any) => `Assignment ${index + 1}`
+    ),
     datasets: [
       {
         label: 'Grade Trend',
-        data: studentGrades?.grades.map(grade =>
+        data: studentGrades?.grades.map((grade: any) =>
           convertGradeToNumber(grade.grade)
         ),
         fill: false,
@@ -130,7 +147,7 @@ const StudentGrades = ({ classCode, studentGrades }: any) => {
                 </thead>
                 <tbody>
                   {studentGrades &&
-                    studentGrades.grades.map((grade, index) => (
+                    studentGrades.grades.map((grade: any, index: any) => (
                       <tr
                         key={index}
                         className='hover:bg-gray-700 cursor-pointer rounded-lg'

@@ -29,8 +29,22 @@ interface TeacherGradesProps {
 }
 
 const TeacherGrades = ({ classCode, allGrades }: TeacherGradesProps) => {
-  // Function to convert letter grades to numerical values
-  const convertGradeToNumber = grade => {
+  type Grade =
+    | 'A+'
+    | 'A'
+    | 'A-'
+    | 'B+'
+    | 'B'
+    | 'B-'
+    | 'C+'
+    | 'C'
+    | 'C-'
+    | 'D+'
+    | 'D'
+    | 'D-'
+    | 'F';
+
+  const convertGradeToNumber = (grade: Grade): number => {
     switch (grade) {
       case 'A+':
         return 4.0;
@@ -63,12 +77,11 @@ const TeacherGrades = ({ classCode, allGrades }: TeacherGradesProps) => {
     }
   };
 
-  // Function to calculate average grade for each assignment
-  const calculateAverageGrades = () => {
-    const assignmentGrades = {};
+  const calculateAverageGrades = (): any[] => {
+    const assignmentGrades: any = {};
 
-    allGrades.forEach(student => {
-      student.grades.forEach(grade => {
+    allGrades.forEach((student: any) => {
+      student.grades.forEach((grade: any) => {
         if (!assignmentGrades[grade.assignmentID]) {
           assignmentGrades[grade.assignmentID] = {
             title: grade.title,
@@ -83,7 +96,7 @@ const TeacherGrades = ({ classCode, allGrades }: TeacherGradesProps) => {
       });
     });
 
-    return Object.values(assignmentGrades).map(assignment => ({
+    return Object.values(assignmentGrades).map((assignment: any) => ({
       ...assignment,
       average: (assignment.total / assignment.count).toFixed(2),
     }));
