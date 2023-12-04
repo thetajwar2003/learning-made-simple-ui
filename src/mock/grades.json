@@ -7,13 +7,43 @@
         "assignmentID": "assignment1",
         "title": "Math Homework #1",
         "description": "Complete the attached worksheet on algebraic equations. ",
-        "grade": "A"
+        "grade": "C"
       },
       {
         "assignmentID": "assignment2",
-        "title": "Math Homework #1",
-        "description": "Complete the attached worksheet on algebraic equations. ",
+        "title": "Math Homework #2",
+        "description": "Solve the problems on trigonometry. ",
+        "grade": "B"
+      },
+      {
+        "assignmentID": "assignment3",
+        "title": "Python Math Homework #1",
+        "description": "Write a program in Python.",
+        "grade": "A-"
+      },
+      {
+        "assignmentID": "assignment4",
+        "title": "Python Math Homework #2",
+        "description": "Write a program in Java.",
+        "grade": "A"
+      },
+      {
+        "assignmentID": "assignment5",
+        "title": "Python Math Homework #3",
+        "description": "Write a program in C++.",
         "grade": "B+"
+      },
+      {
+        "assignmentID": "assignment6",
+        "title": "Python Math Homework #4",
+        "description": "Write a program in C.",
+        "grade": "B"
+      },
+      {
+        "assignmentID": "assignment7",
+        "title": "Python Math Homework #5",
+        "description": "Write a program in C#.",
+        "grade": "B-"
       }
     ]
   },
@@ -23,12 +53,15 @@
     "grades": [
       {
         "assignmentID": "assignment1",
-
         "grade": "A-"
       },
       {
         "assignmentID": "assignment2",
         "grade": "B"
+      },
+      {
+        "assignmentID": "assignment3",
+        "grade": "C"
       }
     ]
   },
@@ -43,6 +76,10 @@
       {
         "assignmentID": "assignment4",
         "grade": "A"
+      },
+      {
+        "assignmentID": "assignment5",
+        "grade": "A-"
       }
     ]
   },
@@ -57,6 +94,10 @@
       {
         "assignmentID": "assignment4",
         "grade": "B-"
+      },
+      {
+        "assignmentID": "assignment5",
+        "grade": "B+"
       }
     ]
   },
@@ -71,6 +112,10 @@
       {
         "assignmentID": "assignment6",
         "grade": "A-"
+      },
+      {
+        "assignmentID": "assignment7",
+        "grade": "B+"
       }
     ]
   }

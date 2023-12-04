@@ -23,6 +23,8 @@ export default function TeacherDashboard() {
                 bannerURL={course.bannerURL}
                 teacher={course.teacher}
                 courseName={course.courseName}
+                classTimes={course.classTimes}
+                courseID={course.courseID}
               />
             </Link>
           </div>
