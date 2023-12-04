@@ -1,6 +1,7 @@
+'use client';
 import React from 'react';
 import FeatureCard from './FeatureCard';
-import { GiTeacher, GiTeamIdea, GiChecklist } from 'react-icons/gi'; // Import your icons
+import { GiTeacher, GiTeamIdea, GiChecklist } from 'react-icons/gi';
 
 const Features = () => {
   return (
