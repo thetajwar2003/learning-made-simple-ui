@@ -6,13 +6,25 @@ import UploadFiles from "../Modals/UploadFiles";
 import AddLink from "../Modals/AddLink";
 import AttachmentCard from "./AttachmentCard";
 
-export default function CreateAnnouncementCard() {
+import { v4 as uuid } from "uuid";
+
+import { Amplify, Storage, API } from "aws-amplify";
+import awsconfig from "../../aws-exports";
+
+Amplify.configure(awsconfig);
+
+interface CreateAnnouncementCardProps {
+  classCode: string;
+}
+
+export default function CreateAnnouncementCard({
+  classCode,
+}: CreateAnnouncementCardProps) {
   const [createAnnouncement, setCreateAnnouncement] = useState(false);
   const [openFilesModal, setOpenFilesModal] = useState(false);
   const [openLinkModal, setOpenLinkModal] = useState(false);
   const [link, setLink] = useState("");
   const [files, setFiles] = useState([]);
-
   const { register, setError, reset, handleSubmit, getValues } =
     useForm<CreatePostFormValues>();
 
@@ -48,21 +60,77 @@ export default function CreateAnnouncementCard() {
   };
 
   const handleUploadedFiles = () => {
-    // TODO: might be unnecessary could look into later
+    // TODO: might be unnecessary could look into
     setFiles(getValues("file")!);
     handleOpenFilesModal();
   };
 
-  const onSubmit: SubmitHandler<CreatePostFormValues> = (data) => {
-    const postReq = {
-      originalPoster: "",
-      timestamp: new Date().toLocaleDateString(),
-      ...data,
-      file: [...files],
-    };
+  const getFileUrl = async (fileKey: string) => {
+    try {
+      const signedUrl = await Storage.get(fileKey, { level: "public" });
+      return signedUrl;
+    } catch (error) {
+      console.error("Error getting file URL:", error);
+      return null;
+    }
+  };
+
+  const onSubmit: SubmitHandler<CreatePostFormValues> = async (data) => {
+    const currentTime = Date.now();
+    const originalPoster = "";
+
+    // make an array of promises that will be called later
+    const uploadS3Promises = [...getValues("file")].map((fileData: any) => {
+      return Storage.put(
+        `${originalPoster}${currentTime}_${fileData.name}`,
+        fileData,
+        {
+          contentType: fileData.type,
+        }
+      );
+    });
+
+    try {
+      // upload the files to S3 first
+      const res = await Promise.all(uploadS3Promises);
+
+      // create an array of promises that gets the private s3url of each uploaded file
+      const s3URLPromises = res.map((uploadResult) => {
+        const fileKey = uploadResult.key;
+        return Storage.get(fileKey, { level: "public" });
+      });
+
+      try {
+        // execute each promise
+        const s3URLs = await Promise.all(s3URLPromises);
+
+        // create a request with all the params
+        const postReq: any = {
+          originalPoster: "",
+          timestamp: new Date().toISOString(),
+          id: uuid(),
+          classCode,
+          ...data,
+          file: s3URLs,
+        };
+
+        try {
+          // call our api to post on postsTable
+          const { success, data } = await API.post("apilms", "/posts", {
+            body: postReq,
+          });
+          console.log(success, data);
+        } catch (error) {
+          console.log("Error creating post: ", error);
+        }
+      } catch (error) {
+        console.log("Error getting s3 urls: ", error);
+      }
+    } catch (error) {
+      console.log("Error uploading files to S3: ", error);
+    }
 
     // TODO: backend logic here -> post to db
-    console.log(postReq);
 
     reset({
       body: "",

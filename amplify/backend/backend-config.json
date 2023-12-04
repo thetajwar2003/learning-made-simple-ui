@@ -161,6 +161,11 @@
     }
   },
   "storage": {
+    "lmsPosts": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    },
     "lmsPostsTable": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"

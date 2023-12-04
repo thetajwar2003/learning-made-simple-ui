@@ -1,0 +1,18 @@
+{
+  "resourceName": "lmsPosts",
+  "policyUUID": "84298b97",
+  "bucketName": "lms3930a82b71e94599955e86dce22d3c80",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

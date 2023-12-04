@@ -3,12 +3,19 @@ import React, { ChangeEvent, useState } from "react";
 import UserHero from "../CustomHero/UserHero";
 import ShowComments from "../Comments/ShowComments";
 
+import { API, Amplify } from "aws-amplify";
+import awsconfig from "../../aws-exports";
+Amplify.configure(awsconfig);
+
 interface PostCardProps {
   id: string;
+  classCode?: string;
+  file?: string[];
+  link?: string;
   body: string;
   timestamp: string;
   originalPoster: string;
-  comments: any[];
+  comments?: any[];
 }
 
 export default function PostCard({
@@ -20,7 +27,27 @@ export default function PostCard({
 }: PostCardProps) {
   const [comment, setComment] = useState("");
 
-  const handlePostComment = () => {};
+  const handlePostComment = async () => {
+    try {
+      // const { success, data } = await API.post("apilms", `/posts/${id}`, {
+      const { success, data } = await API.put(
+        "apilms",
+        `/posts/660a0e61-26e9-46b3-8d83-7107fae8e321`,
+        {
+          body: {
+            newComment: {
+              body: comment,
+              poster: "changeLater",
+              timestamp: new Date().toISOString(),
+            },
+          },
+        }
+      );
+      console.log(success, data);
+    } catch (error) {
+      throw error;
+    }
+  };
 
   const handleInputComment = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -44,7 +71,7 @@ export default function PostCard({
         </h1>
 
         {/* SECTION: show comments */}
-        {comments.length > 0 && <ShowComments comments={comments} />}
+        {comments!.length > 0 && <ShowComments comments={comments!} />}
 
         {/* SECTION: create comment */}
         <UserHero size="14">

@@ -46,6 +46,10 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
+    "lmsPosts": {
+      "BucketName": "string",
+      "Region": "string"
+    },
     "lmsPostsTable": {
       "Arn": "string",
       "Name": "string",
