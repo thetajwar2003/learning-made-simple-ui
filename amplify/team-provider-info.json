@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-lms-dev-93742-unauthRole",
       "StackName": "amplify-lms-dev-93742",
       "StackId": "arn:aws:cloudformation:us-east-1:252369173231:stack/amplify-lms-dev-93742/2dedabc0-70e0-11ee-bf22-0a105da865cd",
-      "AmplifyAppId": "d2cd49x6zwxl8t"
+      "AmplifyAppId": "d2cd49x6zwxl8t",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-lms-dev-93742-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -19,10 +20,29 @@
         "lmsad7adeb2": {
           "deploymentBucketName": "amplify-lms-dev-93742-deployment",
           "s3Key": "amplify-builds/lmsad7adeb2-6c352b796177624d5235-build.zip"
+        },
+        "studentLambda": {
+          "deploymentBucketName": "amplify-lms-dev-93742-deployment",
+          "s3Key": "amplify-builds/studentLambda-63723054625846336e68-build.zip"
+        },
+        "postslambda": {
+          "deploymentBucketName": "amplify-lms-dev-93742-deployment",
+          "s3Key": "amplify-builds/postslambda-504d3248764a7659354e-build.zip"
+        },
+        "assignmentsLambda": {
+          "deploymentBucketName": "amplify-lms-dev-93742-deployment",
+          "s3Key": "amplify-builds/assignmentsLambda-7a2b4943713932583347-build.zip"
         }
       },
       "api": {
-        "lmsapi": {}
+        "lmsapi": {},
+        "apilms": {}
+      },
+      "storage": {
+        "lmsUsersTable": {},
+        "lmsPostsTable": {},
+        "lmsPosts": {},
+        "assignmentsTable": {}
       }
     }
   }

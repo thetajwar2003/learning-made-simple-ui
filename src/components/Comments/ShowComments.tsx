@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UserHero from "../CustomHero/UserHero";
+import { displayDateOrTime } from "../../../utils/getDateOrTime";
 
 interface ShowCommentsProps {
   comments: any[];
@@ -14,8 +15,8 @@ export default function ShowComments({ comments }: ShowCommentsProps) {
 
   return (
     <>
-      <button onClick={handleShowComments}>
-        <h2 className="text-sm font-bold mb-2">{comments.length} Comments</h2>
+      <button onClick={handleShowComments} disabled={comments.length == 1}>
+        <h2 className="text-sm font-bold m-2">{comments.length} Comments</h2>
       </button>
       {showComments ? (
         comments.map((c) => (
@@ -23,12 +24,14 @@ export default function ShowComments({ comments }: ShowCommentsProps) {
             <UserHero size="14" key={c.id}>
               <div className="flex-grow">
                 <h2 className="text-white title-font text-sm">{c.poster}</h2>
-                <h3 className="text-gray-500 text-xs">{c.timestamp}</h3>
+                <h3 className="text-gray-500 text-xs pb- mb-2">
+                  {displayDateOrTime(c.timestamp)}
+                </h3>
+                <h1 className="text-md text-white pb-4 leading-none">
+                  {c.body}
+                </h1>
               </div>
             </UserHero>
-            <h1 className="text-md text-white pb-4 mb-4  leading-none">
-              {c.body}
-            </h1>
           </>
         ))
       ) : (
@@ -43,7 +46,7 @@ export default function ShowComments({ comments }: ShowCommentsProps) {
                 {comments[comments.length - 1]?.poster}
               </h2>
               <h3 className="text-gray-500 text-xs pb-4 mb-4">
-                {comments[comments.length - 1]?.timestamp}
+                {displayDateOrTime(comments[comments.length - 1]?.timestamp)}
               </h3>
               <h1 className="text-md text-white leading-none">
                 {comments[comments.length - 1]?.body}
