@@ -1,0 +1,32 @@
+[
+  {
+    "id": "assignment1",
+    "courseID": "COURSE#101",
+    "title": "Math Homework #1",
+    "description": "Complete the attached worksheet on algebraic equations. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "dueDate": "2023-12-15",
+    "postedDate": "2023-12-01",
+    "teacher": {
+      "name": "Mr. Smith",
+      "profilePicUrl": "/images/teachers/mrsmith.jpg"
+    },
+    "fileUrls": [
+      "/files/assignments/math_homework_1.pdf",
+      "/files/assignments/math_homework_1_instructions.pdf"
+    ],
+    "completed": [
+      {
+        "name": "John Doe",
+        "profilePicUrl": "https://i.redd.it/0gw1ax20unt91.jpg",
+        "date": "2023-12-10",
+        "fileUrls": ["/files/assignments/math_homework_1_johndoe.pdf"]
+      },
+      {
+        "name": "John Doe",
+        "profilePicUrl": "https://i.redd.it/0gw1ax20unt91.jpg",
+        "date": "2023-12-10",
+        "fileUrls": ["/files/assignments/math_homework_1_johndoe.pdf"]
+      }
+    ]
+  }
+]
