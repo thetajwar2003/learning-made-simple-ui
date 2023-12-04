@@ -17,7 +17,7 @@ interface course {
 // TODO: Use AWS Amplify to fetch posts from the database using the classCode
 
 export default function Posts({ classCode }: course) {
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState<any[]>([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -53,10 +53,10 @@ export default function Posts({ classCode }: course) {
         <div className="flex flex-col">
           <ClassCodeCard code={data.classCode} />
         </div>
-
+        {/* TODO: DISPLAY THE POSTS AND COMMENTS */}
         <div className="col-span-4 flex flex-col w-full">
           <CreateAnnouncementCard classCode={classCode} />
-          {posts.map((item, index) => (
+          {post.map((item, index) => (
             <PostCard {...item} key={index} />
           ))}
         </div>

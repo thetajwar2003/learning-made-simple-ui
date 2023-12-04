@@ -65,16 +65,6 @@ export default function CreateAnnouncementCard({
     handleOpenFilesModal();
   };
 
-  const getFileUrl = async (fileKey: string) => {
-    try {
-      const signedUrl = await Storage.get(fileKey, { level: "public" });
-      return signedUrl;
-    } catch (error) {
-      console.error("Error getting file URL:", error);
-      return null;
-    }
-  };
-
   const onSubmit: SubmitHandler<CreatePostFormValues> = async (data) => {
     const currentTime = Date.now();
     const originalPoster = "";
@@ -95,36 +85,28 @@ export default function CreateAnnouncementCard({
       const res = await Promise.all(uploadS3Promises);
 
       // create an array of promises that gets the private s3url of each uploaded file
-      const s3URLPromises = res.map((uploadResult) => {
-        const fileKey = uploadResult.key;
-        return Storage.get(fileKey, { level: "public" });
+      const s3FileNames = res.map((uploadResult) => {
+        return uploadResult.key;
       });
 
+      // create a request with all the params
+      const postReq: any = {
+        originalPoster: "",
+        timestamp: Date.now(),
+        id: uuid(),
+        classCode,
+        ...data,
+        file: s3FileNames,
+      };
+
       try {
-        // execute each promise
-        const s3URLs = await Promise.all(s3URLPromises);
-
-        // create a request with all the params
-        const postReq: any = {
-          originalPoster: "",
-          timestamp: new Date().toISOString(),
-          id: uuid(),
-          classCode,
-          ...data,
-          file: s3URLs,
-        };
-
-        try {
-          // call our api to post on postsTable
-          const { success, data } = await API.post("apilms", "/posts", {
-            body: postReq,
-          });
-          console.log(success, data);
-        } catch (error) {
-          console.log("Error creating post: ", error);
-        }
+        // call our api to post on postsTable
+        const { success, data } = await API.post("apilms", "/posts", {
+          body: postReq,
+        });
+        console.log(success, data);
       } catch (error) {
-        console.log("Error getting s3 urls: ", error);
+        console.log("Error creating post: ", error);
       }
     } catch (error) {
       console.log("Error uploading files to S3: ", error);

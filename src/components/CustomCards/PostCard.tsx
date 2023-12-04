@@ -1,7 +1,12 @@
 "use client";
 import React, { ChangeEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+
 import UserHero from "../CustomHero/UserHero";
 import ShowComments from "../Comments/ShowComments";
+import AttachmentCard from "./AttachmentCard";
+
+import { displayDateOrTime } from "../../../utils/getDateOrTime";
 
 import { API, Amplify } from "aws-amplify";
 import awsconfig from "../../aws-exports";
@@ -24,26 +29,27 @@ export default function PostCard({
   timestamp,
   originalPoster,
   comments,
+  classCode,
+  file,
+  link,
 }: PostCardProps) {
   const [comment, setComment] = useState("");
 
+  const router = useRouter();
+
   const handlePostComment = async () => {
     try {
-      // const { success, data } = await API.post("apilms", `/posts/${id}`, {
-      const { success, data } = await API.put(
-        "apilms",
-        `/posts/660a0e61-26e9-46b3-8d83-7107fae8e321`,
-        {
-          body: {
-            newComment: {
-              body: comment,
-              poster: "changeLater",
-              timestamp: new Date().toISOString(),
-            },
+      const { success, data } = await API.put("apilms", `/posts/${id}`, {
+        body: {
+          newComment: {
+            body: comment,
+            poster: "changeLater",
+            timestamp: Date.now(),
           },
-        }
-      );
+        },
+      });
       console.log(success, data);
+      router.refresh();
     } catch (error) {
       throw error;
     }
@@ -61,14 +67,30 @@ export default function PostCard({
         <UserHero>
           <div className="flex-grow">
             <h2 className="text-white title-font text-sm">{originalPoster}</h2>
-            <h3 className="text-gray-500 text-xs">{timestamp}</h3>
+            <h3 className="text-gray-500 text-xs">
+              {displayDateOrTime(timestamp)}
+            </h3>
           </div>
         </UserHero>
 
         {/* SECTION: body */}
-        <h1 className="text-md text-white pb-4 mb-4 border-b border-gray-800 leading-none">
-          {body}
-        </h1>
+        <div className="border-b border-gray-800 leading-none">
+          <h1 className="text-md text-white pb-4 mb-4 ">{body}</h1>
+
+          {link !== "" ? <AttachmentCard type="link" value={link} /> : null}
+          {file != undefined && file.length > 0 ? (
+            <>
+              {file.map((f, index) => (
+                <AttachmentCard
+                  type="s3"
+                  value={f}
+                  s3FileName={f}
+                  key={index}
+                />
+              ))}
+            </>
+          ) : null}
+        </div>
 
         {/* SECTION: show comments */}
         {comments!.length > 0 && <ShowComments comments={comments!} />}
