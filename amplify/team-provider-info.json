@@ -27,7 +27,11 @@
         },
         "postslambda": {
           "deploymentBucketName": "amplify-lms-dev-93742-deployment",
-          "s3Key": "amplify-builds/postslambda-76366d4f414748686d6e-build.zip"
+          "s3Key": "amplify-builds/postslambda-504d3248764a7659354e-build.zip"
+        },
+        "assignmentsLambda": {
+          "deploymentBucketName": "amplify-lms-dev-93742-deployment",
+          "s3Key": "amplify-builds/assignmentsLambda-7a2b4943713932583347-build.zip"
         }
       },
       "api": {
@@ -37,7 +41,8 @@
       "storage": {
         "lmsUsersTable": {},
         "lmsPostsTable": {},
-        "lmsPosts": {}
+        "lmsPosts": {},
+        "assignmentsTable": {}
       }
     }
   }

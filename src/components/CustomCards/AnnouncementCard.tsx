@@ -15,16 +15,25 @@ Amplify.configure(awsconfig);
 
 interface CreateAnnouncementCardProps {
   classCode: string;
+  itemType?: string;
+  isOpen?: boolean;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function CreateAnnouncementCard({
   classCode,
+  itemType = "posts",
+  isOpen,
+  setIsOpen,
 }: CreateAnnouncementCardProps) {
-  const [createAnnouncement, setCreateAnnouncement] = useState(false);
+  const [createAnnouncement, setCreateAnnouncement] = useState(isOpen || false);
   const [openFilesModal, setOpenFilesModal] = useState(false);
   const [openLinkModal, setOpenLinkModal] = useState(false);
   const [link, setLink] = useState("");
   const [files, setFiles] = useState([]);
+  const [title, setTitle] = useState(""); // New state for title
+  const [description, setDescription] = useState(""); // New state for description
+  const [dueDate, setDueDate] = useState(""); // New state for due date
   const { register, setError, reset, handleSubmit, getValues } =
     useForm<CreatePostFormValues>();
 
@@ -43,6 +52,7 @@ export default function CreateAnnouncementCard({
           });
         })()
       : null;
+    setIsOpen && setIsOpen(!createAnnouncement); // close the entire announcement modal
   };
 
   const handleOpenLinkModal = () => {
@@ -67,12 +77,13 @@ export default function CreateAnnouncementCard({
 
   const onSubmit: SubmitHandler<CreatePostFormValues> = async (data) => {
     const currentTime = Date.now();
-    const originalPoster = "";
+    const originalPoster = "prof.johnson";
 
     // make an array of promises that will be called later
+    // TODO: edit this, exctract to a different function so we can make a post with no files/links
     const uploadS3Promises = [...getValues("file")].map((fileData: any) => {
       return Storage.put(
-        `${originalPoster}${currentTime}_${fileData.name}`,
+        `${itemType}/${originalPoster}${currentTime}_${fileData.name}`,
         fileData,
         {
           contentType: fileData.type,
@@ -90,8 +101,8 @@ export default function CreateAnnouncementCard({
       });
 
       // create a request with all the params
-      const postReq: any = {
-        originalPoster: "",
+      const postsReq: any = {
+        originalPoster: "prof.johnson",
         timestamp: Date.now(),
         id: uuid(),
         classCode,
@@ -99,10 +110,17 @@ export default function CreateAnnouncementCard({
         file: s3FileNames,
       };
 
+      const assignmentsReq = {
+        ...postsReq,
+        title,
+        description,
+        dueDate,
+      };
+
       try {
         // call our api to post on postsTable
-        const { success, data } = await API.post("apilms", "/posts", {
-          body: postReq,
+        const { success, data } = await API.post("apilms", `/${itemType}`, {
+          body: itemType == "posts" ? postsReq : assignmentsReq,
         });
         console.log(success, data);
       } catch (error) {
@@ -137,6 +155,32 @@ export default function CreateAnnouncementCard({
           id="create-announcement-form"
           onSubmit={handleSubmit(onSubmit)}
         >
+          {itemType === "assignments" && (
+            <>
+              <input
+                type="text"
+                placeholder="Title of Assignment"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full bg-gray-700 text-white p-4 mb-4 outline-none rounded-md"
+              />
+              <textarea
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="w-full bg-gray-700 text-white p-4 mb-4 outline-none rounded-md"
+                rows={3}
+              />
+              <input
+                type="date"
+                placeholder="Due Date"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
+                className="w-full bg-gray-700 text-white p-4 mb-4 outline-none rounded-md"
+              />
+            </>
+          )}
+
           <textarea
             className="w-full bg-gray-700 text-white p-4 mb-4 outline-none rounded-md border-b-2 border-primary"
             rows={4}
@@ -145,7 +189,6 @@ export default function CreateAnnouncementCard({
             required
             id="announcement-body"
           />
-
           {/* after we click add a link or files, it should pop up here */}
           {link && <AttachmentCard type="link" value={link} />}
           {files.length > 0 && (
@@ -155,7 +198,6 @@ export default function CreateAnnouncementCard({
               ))}
             </>
           )}
-
           <div className="flex justify-between">
             <div>
               <button
@@ -215,7 +257,9 @@ export default function CreateAnnouncementCard({
           <UserHero>
             <div className="flex-grow">
               <h2 className="text-white title-font text-sm">
-                Announce something to your class
+                {itemType === "assignments"
+                  ? "Create an assignment"
+                  : "Announce something to your class"}
               </h2>
             </div>
           </UserHero>

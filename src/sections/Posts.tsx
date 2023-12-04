@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 
 import PostCard from "@/components/CustomCards/PostCard";
@@ -14,18 +15,18 @@ interface course {
   classCode: string;
 }
 
-// TODO: Use AWS Amplify to fetch posts from the database using the classCode
-
 export default function Posts({ classCode }: course) {
   const [post, setPost] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiData = await API.get("apilms", "/posts", {});
+        const apiData = await API.get("apilms", "/posts", {}); //TODO change it be the specific class
         console.log(apiData);
         setPost(apiData);
+        setLoading(false);
       } catch (err: any) {
         setError(err);
         console.log("error fetching data..", err);
@@ -35,12 +36,8 @@ export default function Posts({ classCode }: course) {
     fetchData();
   }, []);
 
-  const data = {
-    classCode: classCode,
-  };
-
   if (error) {
-    return <div>Error fetching data</div>;
+    return <div>Error fetching posts</div>;
   }
 
   if (!post) {
@@ -51,14 +48,20 @@ export default function Posts({ classCode }: course) {
     <>
       <div className="grid grid-cols-5 gap-3">
         <div className="flex flex-col">
-          <ClassCodeCard code={data.classCode} />
+          <ClassCodeCard code={classCode} />
         </div>
         {/* TODO: DISPLAY THE POSTS AND COMMENTS */}
         <div className="col-span-4 flex flex-col w-full">
           <CreateAnnouncementCard classCode={classCode} />
-          {post.map((item, index) => (
-            <PostCard {...item} key={index} />
-          ))}
+          {loading ? (
+            <p>Getting posts...</p>
+          ) : (
+            <>
+              {post.map((item, index) => (
+                <PostCard {...item} key={index} />
+              ))}
+            </>
+          )}
         </div>
       </div>
     </>

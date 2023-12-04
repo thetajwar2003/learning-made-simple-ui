@@ -9,7 +9,7 @@ See the License for the specific language governing permissions and limitations 
 
 
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
-const { DeleteCommand, DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, ScanCommand, UpdateCommand } = require('@aws-sdk/lib-dynamodb');
+const { DeleteCommand, DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, ScanCommand } = require('@aws-sdk/lib-dynamodb');
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -17,7 +17,7 @@ const express = require('express');
 const ddbClient = new DynamoDBClient({ region: process.env.TABLE_REGION });
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 
-let tableName = "lmsPostsTable";
+let tableName = "assignmentsTable";
 if (process.env.ENV && process.env.ENV !== "NONE") {
   tableName = tableName + '-' + process.env.ENV;
 }
@@ -28,7 +28,7 @@ const partitionKeyType = "S";
 const sortKeyName = "";
 const sortKeyType = "";
 const hasSortKey = sortKeyName !== "";
-const path = "/posts";
+const path = "/assignments";
 const UNAUTH = 'UNAUTH';
 const hashKeyPath = '/:' + partitionKeyName;
 const sortKeyPath = hasSortKey ? '/:' + sortKeyName : '';
@@ -74,15 +74,15 @@ app.get(path, async function (req, res) {
   }
 });
 
-/**************************************************
-* HTTP Get method to get posts of a specific class *
-***************************************************/
+/********************************************************
+* HTTP Get method to get assignments of a specific class *
+***********************************************************/
 
 app.get(`${ path }/:classCode`, async function (req, res) {
   const attributeValue = req.params.classCode;
   const attributeName = "classCode";
 
-  var getClassPostsParams = {
+  var getClassAssignmentsParams = {
     TableName: tableName,
     FilterExpression: '#attrName = :attrValue',
     ExpressionAttributeNames: {
@@ -94,16 +94,13 @@ app.get(`${ path }/:classCode`, async function (req, res) {
   };
 
   try {
-    const data = await ddbDocClient.send(new ScanCommand(getClassPostsParams));
-    // Sort items by timestamp in descending order
-    const sortedItems = data.Items.sort((a, b) => parseInt(b.timestamp) - parseInt(a.timestamp));
-    res.json(sortedItems);
+    const data = await ddbDocClient.send(new ScanCommand(getClassAssignmentsParams));
+    res.json(data.Items);
   } catch (err) {
     res.statusCode = 500;
     res.json({ error: 'Could not load items: ' + err.message });
   }
 });
-
 
 /************************************
  * HTTP Get method to query objects *
@@ -209,41 +206,8 @@ app.put(path, async function (req, res) {
 });
 
 /************************************
-* HTTP put method for insert comments *
-*************************************/
-
-app.put(`${ path }/:id`, async function (req, res) {
-  const postId = req.params.id;
-  const newComment = req.body.newComment;
-
-  if (!newComment) {
-    return res.status(400).send({ message: "Comment is required" });
-  }
-
-  const updateParams = {
-    TableName: tableName,
-    Key: {
-      id: postId,
-    },
-    UpdateExpression: 'SET comments = list_append(if_not_exists(comments, :empty_list), :newComment)',
-    ExpressionAttributeValues: {
-      ':newComment': [newComment],
-      ':empty_list': [],
-    },
-    ReturnValues: 'UPDATED_NEW',
-  };
-
-  try {
-    let data = await ddbDocClient.send(new UpdateCommand(updateParams));
-    res.json({ message: 'Comment added successfully', data: data.Attributes });
-  } catch (err) {
-    res.status(500).send({ error: 'Could not update item: ' + err.message });
-  }
-});
-
-/************************************
 * HTTP post method for insert object *
-// TODO: put the post id to the user's posts[] attribute
+// TODO: add assignments under teachers assignments[] attribute
 *************************************/
 
 app.post(path, async function (req, res) {

@@ -17,6 +17,14 @@
           ],
           "category": "function",
           "resourceName": "postslambda"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "assignmentsLambda"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -66,6 +74,25 @@
     }
   },
   "function": {
+    "assignmentsLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "assignmentsTable"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "lmsad7adeb2": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -111,6 +138,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_assignmentsLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "assignmentsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_assignmentsLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "assignmentsLambda"
+        }
+      ]
+    },
     "AMPLIFY_function_lmsad7adeb2_deploymentBucketName": {
       "usedBy": [
         {
@@ -161,6 +204,10 @@
     }
   },
   "storage": {
+    "assignmentsTable": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
     "lmsPosts": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",

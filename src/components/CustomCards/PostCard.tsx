@@ -93,7 +93,9 @@ export default function PostCard({
         </div>
 
         {/* SECTION: show comments */}
-        {comments!.length > 0 && <ShowComments comments={comments!} />}
+        {comments && comments.length > 0 && (
+          <ShowComments comments={comments!} />
+        )}
 
         {/* SECTION: create comment */}
         <UserHero size="14">

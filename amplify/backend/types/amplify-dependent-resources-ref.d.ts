@@ -23,6 +23,13 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "assignmentsLambda": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "lmsad7adeb2": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -46,6 +53,14 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
+    "assignmentsTable": {
+      "Arn": "string",
+      "Name": "string",
+      "PartitionKeyName": "string",
+      "PartitionKeyType": "string",
+      "Region": "string",
+      "StreamArn": "string"
+    },
     "lmsPosts": {
       "BucketName": "string",
       "Region": "string"

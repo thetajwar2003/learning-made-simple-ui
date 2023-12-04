@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Storage, Amplify } from "aws-amplify";
 import awsconfig from "../../aws-exports";
-import { extractFileName } from "../../../utils/extractFileName";
+import { extractFileName } from "../../../utils/extractFromString";
 Amplify.configure(awsconfig);
 
 interface AttachmentCardProps {
@@ -20,7 +20,9 @@ export default function AttachmentCard({
   useEffect(() => {
     const fetchFileUrl = async () => {
       try {
-        const url = await Storage.get(s3FileName!, { level: "public" });
+        const url = await Storage.get(`${s3FileName!}`, {
+          level: "public",
+        });
         setFileUrl(url);
       } catch (error) {
         console.error("Error fetching file URL:", error);
