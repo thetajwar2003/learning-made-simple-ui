@@ -29,9 +29,6 @@ export default function Header() {
           <Link className='mr-5 hover:text-gray-400' href='./partners'>
             Partners
           </Link>
-          <Link className='mr-5 hover:text-gray-400' href='./tutorial'>
-            Tutorial
-          </Link>
           <Link className='mr-5 hover:text-gray-400' href='./resources'>
             Resources
           </Link>
