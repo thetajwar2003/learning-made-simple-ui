@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
 import Link from 'next/link';
 import Features from '@/components/HomePage/Features';
+import FAQSection from '@/components/HomePage/Faq';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -39,10 +41,14 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className='mt-40'>
+        <div className='mt-52'>
           <Features />
         </div>
+        <div className='mt-44'>
+          <FAQSection />
+        </div>
       </main>
+      <Footer />
     </>
   );
 }
