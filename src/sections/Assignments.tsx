@@ -27,8 +27,6 @@ export default function Assignments({ classCode }: course) {
   const pathname = usePathname();
   const role = extractRole(pathname);
 
-  // TODO: Use AWS Amplify to fetch assignments from the database using the classCode
-
   const itemType = "assignments"; // TODO: Get the user type from the database
 
   const handleCreateAssignment = () => {
