@@ -24,7 +24,7 @@ export default function Partners() {
 
   return (
     <>
-      <main className='min-h-screen bg-black text-white p-24 mt-48'>
+      <main className='bg-black text-white p-24 mt-48 mb-96'>
         <div className='container mx-auto'>
           <h1 className='title-font font-bold text-4xl md:text-7xl mb-8 font-medium text-center'>
             Our Partners

@@ -1,5 +1,5 @@
+import Footer from '@/components/Footer';
 import React from 'react';
-import Header from '@/components/Header';
 
 // Example founder data - replace with real data
 const founders = [
@@ -34,12 +34,12 @@ const founders = [
 export default function Founders() {
   return (
     <>
-      <main className='min-h-screen bg-black text-white p-24'>
+      <main className='bg-black text-white pt-24 px-24 mb-96'>
         <div className='container mx-auto'>
           <h1 className='title-font font-bold text-4xl md:text-7xl mb-8 font-medium text-center'>
             Our Founders
           </h1>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 m-32'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-32'>
             {founders.map((founder, index) => (
               <div
                 key={index}
