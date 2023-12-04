@@ -23,7 +23,7 @@ export default function StudentCoursePage() {
       <CoursePageTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
       {currentTab === 'posts' && <Posts classCode={courseCode} />}
       {currentTab === 'assignments' && <Assignments classCode={courseCode} />}
-      {currentTab == "students" && <Students />}
+      {currentTab == "students" && <Students classCode={courseCode}/>}
       {currentTab === 'grades' && <Grades classCode={courseCode} />}
     </div>
   );
