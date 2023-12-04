@@ -35,8 +35,8 @@ export default function Header() {
           <Link className='mr-5 hover:text-gray-400' href='./resources'>
             Resources
           </Link>
-          <Link className='mr-5 hover:text-gray-400' href='./about'>
-            About
+          <Link className='mr-5 hover:text-gray-400' href='./founders'>
+            Founders
           </Link>
         </nav>
         <Link
