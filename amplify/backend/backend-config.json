@@ -137,6 +137,72 @@
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_assignmentsLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "assignmentsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_assignmentsLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "assignmentsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_lmsad7adeb2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lmsad7adeb2"
+        }
+      ]
+    },
+    "AMPLIFY_function_lmsad7adeb2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lmsad7adeb2"
+        }
+      ]
+    },
+    "AMPLIFY_function_postslambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "postslambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_postslambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "postslambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_studentLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "studentLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_studentLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "studentLambda"
+        }
+      ]
+    }
+  },
   "storage": {
     "assignmentsTable": {
       "providerPlugin": "awscloudformation",

@@ -19,3 +19,8 @@ export type TeacherLoginType = {
   department: string;
   profilePic: FileList;
 };
+
+export type UserLoginType = {
+  email: string;
+  password: string;
+};
