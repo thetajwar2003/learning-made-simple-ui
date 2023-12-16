@@ -44,7 +44,7 @@ export default function Login() {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-5xl text-4xl font-bold title-font text-white mb-3">
-            Sign Into Learning Made Simple
+            Log Into Learning Made Simple
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             Log in to continue
