@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { UserLoginType } from "@/types/auth";
 
 import { Amplify, Auth } from "aws-amplify";
-import awsconfig from "../../aws-exports";
+import awsconfig from "../../../aws-exports";
 import LoginInput from "@/components/CustomInputs/LoginInput";
 
 Amplify.configure(awsconfig);
