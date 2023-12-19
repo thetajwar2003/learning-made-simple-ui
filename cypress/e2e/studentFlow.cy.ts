@@ -14,7 +14,7 @@ describe("Student Flow", () => {
     cy.get("#course-list-card-0").should("exist").click();
 
     // go thru all the components in posts
-    cy.get("#posts-tab").should("exist").click();
+    cy.get("#posts").should("exist").click();
     cy.get("#class-code-card").should("exist");
     cy.get("#copy-button").should("exist");
     cy.get("#create-announcement-card").should("exist").click();
@@ -25,13 +25,13 @@ describe("Student Flow", () => {
     cy.get("#create-announcement-form").should("not.exist");
 
     // go thru all the components in assignments
-    cy.get("#assignments-tab").should("exist").click();
+    cy.get("#assignments").should("exist").click();
 
     // go thru all the components in students
-    cy.get("#students-tab").should("exist").click();
+    cy.get("#students").should("exist").click();
 
     // go thru all the components in grades
-    cy.get("#grades-tab").should("exist").click();
+    cy.get("#grades").should("exist").click();
     // TODO: edit later
   });
 });
