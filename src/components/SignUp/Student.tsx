@@ -26,7 +26,7 @@ export default function StudentSignUp() {
     // Handle file upload logic here if necessary
 
     try {
-      const { user } = await Auth.signUp({
+      const { user, userSub } = await Auth.signUp({
         username: email,
         password,
         attributes: {
@@ -37,7 +37,7 @@ export default function StudentSignUp() {
           enabled: true,
         },
       });
-      console.log("Signed up a user:", user);
+      console.log("Signed up a user:", user, userSub);
       // Handle additional logic for storing profile picture, etc.
     } catch (error) {
       throw error;
@@ -141,7 +141,7 @@ export default function StudentSignUp() {
         <LoginInput
           label="Profile Picture"
           type="file"
-          id="profilePic"
+          id="profile-pic"
           params={{
             ...register("profilePic"),
           }}
@@ -149,7 +149,7 @@ export default function StudentSignUp() {
 
         <div className="p-2 w-auto space-y-4">
           <button
-            id="loginButton"
+            id="signup-button"
             type="submit"
             onClick={handleSubmit(onSubmit)}
             className="flex mx-auto text-white bg-primary border-0 py-2 px-8 focus:outline-none hover:bg-secondary rounded-full text-lg w-full justify-center items-center"
