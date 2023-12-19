@@ -1,17 +1,17 @@
-'use client';
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { TeacherLoginType } from '@/types/auth';
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { TeacherLoginType } from "@/types/auth";
 
-import { Amplify, Auth } from 'aws-amplify';
-import awsconfig from '../../aws-exports';
-import LoginInput from '../CustomInputs/LoginInput';
+import { Amplify, Auth } from "aws-amplify";
+import awsconfig from "../../aws-exports";
+import LoginInput from "../CustomInputs/LoginInput";
 
 Amplify.configure(awsconfig);
 
 export default function TeacherSignUp() {
-  const [signUpError, setSignUpError] = useState<string>('');
+  const [signUpError, setSignUpError] = useState<string>("");
   const router = useRouter();
   const {
     register,
@@ -34,15 +34,15 @@ export default function TeacherSignUp() {
           enabled: true,
         },
       });
-      console.log('Signed up a user:', user);
+      console.log("Signed up a user:", user);
     } catch (error) {
       throw error;
     }
   };
 
-  const onSubmit: SubmitHandler<TeacherLoginType> = async data => {
+  const onSubmit: SubmitHandler<TeacherLoginType> = async (data) => {
     try {
-      await signUp(data).then(() => router.push('/teacher'));
+      await signUp(data).then(() => router.push("/teacher"));
     } catch (error: any) {
       console.error(error);
       setSignUpError(error.message);
@@ -50,18 +50,18 @@ export default function TeacherSignUp() {
   };
 
   return (
-    <form className='lg:w-1/2 md:w-2/3 mx-auto justify-center'>
-      <div className='flex flex-col -m-2 items-center'>
+    <form className="lg:w-1/2 md:w-2/3 mx-auto justify-center">
+      <div className="flex flex-col -m-2 items-center">
         {/* Email Input */}
         <LoginInput
-          label='Email'
-          type='text'
-          id='email'
+          label="Email"
+          type="text"
+          id="email"
           params={{
-            ...register('email', {
+            ...register("email", {
               required: {
                 value: true,
-                message: 'Please enter a valid email.',
+                message: "Please enter a valid email.",
               },
             }),
           }}
@@ -69,18 +69,18 @@ export default function TeacherSignUp() {
 
         {/* Password Input */}
         <LoginInput
-          label='Password'
-          type='password'
-          id='password'
+          label="Password"
+          type="password"
+          id="password"
           params={{
-            ...register('password', {
+            ...register("password", {
               required: {
                 value: true,
-                message: 'Please enter a password.',
+                message: "Please enter a password.",
               },
               minLength: {
                 value: 8,
-                message: 'Please enter a stronger password.',
+                message: "Please enter a stronger password.",
               },
             }),
           }}
@@ -88,14 +88,14 @@ export default function TeacherSignUp() {
 
         {/* School Input */}
         <LoginInput
-          label='School'
-          type='text'
-          id='school'
+          label="School"
+          type="text"
+          id="school"
           params={{
-            ...register('school', {
+            ...register("school", {
               required: {
                 value: true,
-                message: 'Please enter a valid school.',
+                message: "Please enter a valid school.",
               },
             }),
           }}
@@ -103,14 +103,14 @@ export default function TeacherSignUp() {
 
         {/* Department Input */}
         <LoginInput
-          label='Department'
-          type='text'
-          id='department'
+          label="Department"
+          type="text"
+          id="department"
           params={{
-            ...register('department', {
+            ...register("department", {
               required: {
                 value: true,
-                message: 'Please enter a valid Department.',
+                message: "Please enter a valid Department.",
               },
             }),
           }}
@@ -118,38 +118,38 @@ export default function TeacherSignUp() {
 
         {/* Profile Picture Upload */}
         <LoginInput
-          label='Profile Picture'
-          type='file'
-          id='profilePic'
+          label="Profile Picture"
+          type="file"
+          id="profile-pic"
           params={{
-            ...register('profilePic'),
+            ...register("profilePic"),
           }}
         />
 
-        <div className='p-2 w-auto space-y-4'>
+        <div className="p-2 w-auto space-y-4">
           <button
-            id='loginButton'
-            type='submit'
+            id="signup-button"
+            type="submit"
             onClick={handleSubmit(onSubmit)}
-            className='flex mx-auto text-white bg-primary border-0 py-2 px-8 focus:outline-none hover:bg-secondary rounded-full text-lg w-full justify-center items-center'
+            className="flex mx-auto text-white bg-primary border-0 py-2 px-8 focus:outline-none hover:bg-secondary rounded-full text-lg w-full justify-center items-center"
           >
             <img
-              className='w-5 h-5'
-              src='https://img.icons8.com/material-outlined/24/FFFFFF/enter-2.png'
-              loading='lazy'
-              alt='log in logo'
+              className="w-5 h-5"
+              src="https://img.icons8.com/material-outlined/24/FFFFFF/enter-2.png"
+              loading="lazy"
+              alt="log in logo"
             />
             Sign Up
           </button>
         </div>
 
-        {signUpError !== '' ? (
-          <p id='signUpError' className='text-red-700'>
+        {signUpError !== "" ? (
+          <p id="signUpError" className="text-red-700">
             {signUpError}
           </p>
         ) : null}
 
-        <div className='p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center'></div>
+        <div className="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center"></div>
       </div>
     </form>
   );

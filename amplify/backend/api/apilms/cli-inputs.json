@@ -1,22 +1,6 @@
 {
   "version": 1,
   "paths": {
-    "/student": {
-      "name": "/student",
-      "lambdaFunction": "studentLambda",
-      "permissions": {
-        "setting": "protected",
-        "auth": [
-          "create",
-          "read",
-          "update",
-          "delete"
-        ],
-        "guest": [
-          "read"
-        ]
-      }
-    },
     "/posts": {
       "name": "/posts",
       "lambdaFunction": "postslambda",
@@ -39,6 +23,25 @@
     "/assignments": {
       "name": "/assignments",
       "lambdaFunction": "assignmentsLambda",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/student": {
+      "name": "/student",
+      "lambdaFunction": "studentLambda",
       "permissions": {
         "setting": "protected",
         "auth": [

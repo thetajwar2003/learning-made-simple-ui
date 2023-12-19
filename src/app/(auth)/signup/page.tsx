@@ -13,7 +13,10 @@ export default function SignUp() {
   return (
     <section className="text-gray-400 body-font absolute inset-0 bg-black">
       <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
+        <div
+          className="flex flex-col text-center w-full mb-20"
+          id="title-section"
+        >
           <h1 className="sm:text-5xl text-4xl font-bold title-font text-white mb-3">
             Sign Into Learning Made Simple
           </h1>
@@ -26,7 +29,7 @@ export default function SignUp() {
                 tab == "student" ? `bg-primary text-white` : `text-gray-300 `
               }`}
               onClick={handleTab}
-              id="login-student-tab"
+              id="signup-student-tab"
             >
               Student
             </button>
@@ -35,7 +38,7 @@ export default function SignUp() {
                 tab == "teacher" ? `bg-primary text-white` : `text-gray-300 `
               }`}
               onClick={handleTab}
-              id="login-teacher-tab"
+              id="signup-teacher-tab"
             >
               Teacher
             </button>
