@@ -9,6 +9,7 @@ import posts from "@/mock/posts.json";
 import { API, Amplify } from "aws-amplify";
 
 import awsExports from "../aws-exports"; // The path to your aws-exports file
+import Loading from "@/components/Loading";
 Amplify.configure(awsExports);
 
 interface course {
@@ -54,7 +55,7 @@ export default function Posts({ classCode }: course) {
         <div className="col-span-4 flex flex-col w-full">
           <CreateAnnouncementCard classCode={classCode} />
           {loading ? (
-            <p>Getting posts...</p>
+            <Loading message="Getting posts" />
           ) : (
             <>
               {post.map((item, index) => (

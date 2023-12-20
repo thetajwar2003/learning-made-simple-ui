@@ -5,13 +5,12 @@ import AssignmentCard from "@/components/CustomCards/AssignmentCard";
 import ClassCodeCard from "@/components/CustomCards/ClassCodeCard";
 import SubmittedCard from "@/components/CustomCards/SubmittedCard";
 import CreateAnnouncementCard from "@/components/CustomCards/AnnouncementCard";
-// import assignments from "@/mock/assignment.json";
 
 import { extractRole } from "../../utils/extractFromString";
 
 import { API, Amplify } from "aws-amplify";
-
 import awsExports from "../aws-exports"; // The path to your aws-exports file
+import Loading from "@/components/Loading";
 Amplify.configure(awsExports);
 
 interface course {
@@ -89,7 +88,7 @@ export default function Assignments({ classCode }: course) {
 
           {/* student or teacher assignment card */}
           {loading ? (
-            <p>Getting assignments...</p>
+            <Loading message="Getting assignments" />
           ) : (
             <>
               {assignments.map((item, index) =>
