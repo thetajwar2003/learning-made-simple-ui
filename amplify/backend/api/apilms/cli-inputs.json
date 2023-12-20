@@ -57,6 +57,25 @@
           "delete"
         ]
       }
+    },
+    "/user": {
+      "name": "/user",
+      "lambdaFunction": "userLambda",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }

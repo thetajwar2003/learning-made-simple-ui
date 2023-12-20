@@ -32,7 +32,8 @@
         "assignmentsLambda": {
           "deploymentBucketName": "amplify-lms-dev-93742-deployment",
           "s3Key": "amplify-builds/assignmentsLambda-7a2b4943713932583347-build.zip"
-        }
+        },
+        "userLambda": {}
       },
       "api": {
         "lmsapi": {},
