@@ -1,10 +1,10 @@
 "use client";
+import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import CoursePageTabs from "@/components/Tabs/CoursePageTabs";
 import Posts from "@/sections/Posts";
 import Assignments from "@/sections/Assignments";
 import Grades from "@/sections/Grades";
-import React, { useState } from "react";
 import Students from "@/sections/Students";
 
 export default function StudentCoursePage() {
